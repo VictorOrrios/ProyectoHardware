@@ -1,0 +1,10 @@
+.\objects\scheduler.o: ..\..\src\scheduler.c
+.\objects\scheduler.o: ..\..\src\rt_fifo.h
+.\objects\scheduler.o: ..\..\src\hal_gpio.h
+.\objects\scheduler.o: C:\Programas-Practicas\Simuladores\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\scheduler.o: ..\..\src\rt_evento_t.h
+.\objects\scheduler.o: ..\..\src\drv_tiempo.h
+.\objects\scheduler.o: ..\..\src\drv_leds.h
+.\objects\scheduler.o: ..\..\src\drv_consumo.h
+.\objects\scheduler.o: ..\..\src\board.h
+.\objects\scheduler.o: ../src_nrf/board_nrf52840dk.h
