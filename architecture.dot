@@ -8,6 +8,7 @@ digraph system_architecture {
     HAL [label="Hardware Abstraction Layer\nLPC2105/NRF52840"];
     
     Application -> Services;
+    Application -> Drivers;
     Services -> Drivers;
     Drivers -> HAL;
 } 
