@@ -5,5 +5,5 @@ var searchData=
   ['led_20control_2',['LED Control',['../group___a_p_p___a_d_v_a_n_c_e_d.html',1,'Advanced LED Control'],['../group___a_p_p___e_v_e_n_t.html',1,'Event-Based LED Control']]],
   ['led_20driver_3',['LED Driver',['../group___d_r_v___l_e_d_s.html',1,'']]],
   ['logging_20service_4',['Logging Service',['../group___s_v_c___l_o_g.html',1,'']]],
-  ['lpc2105_20hal_20implementation_5',['LPC2105 HAL Implementation',['../group___h_a_l___l_p_c.html',1,'']]]
+  ['lpc2105_20headers_5',['LPC2105 Headers',['../group___h_a_l___l_p_c.html',1,'']]]
 ];

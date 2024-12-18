@@ -32,5 +32,5 @@ var searchData=
   ['log_5flevel_5finfo_29',['LOG_LEVEL_INFO',['../svc__log_8h.html#a2e25fe130cf710da4ad800747fdd51f3',1,'svc_log.h']]],
   ['log_5flevel_5fnone_30',['LOG_LEVEL_NONE',['../svc__log_8h.html#a43dece650f96e7cf2a4e535c9bd4804a',1,'svc_log.h']]],
   ['logging_20service_31',['Logging Service',['../group___s_v_c___l_o_g.html',1,'']]],
-  ['lpc2105_20hal_20implementation_32',['LPC2105 HAL Implementation',['../group___h_a_l___l_p_c.html',1,'']]]
+  ['lpc2105_20headers_32',['LPC2105 Headers',['../group___h_a_l___l_p_c.html',1,'']]]
 ];

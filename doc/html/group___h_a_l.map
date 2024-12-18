@@ -1,13 +1,12 @@
 <map id="Hardware Abstraction Layer" name="Hardware Abstraction Layer">
-<area shape="rect" id="Node000001" title="Hardware abstraction layer for microcontroller peripherals." alt="" coords="5,220,152,261"/>
-<area shape="rect" id="Node000005" href="$group___h_a_l___e_x_t_i_n_t.html" title=" " alt="" coords="226,5,384,31"/>
-<area shape="rect" id="Node000006" href="$group___h_a_l___g_p_i_o.html" title=" " alt="" coords="263,55,348,80"/>
-<area shape="rect" id="Node000002" href="$group___h_a_l___l_p_c.html" title="Hardware abstraction layer implementation for LPC2105." alt="" coords="207,104,404,130"/>
-<area shape="rect" id="Node000003" href="$group___h_a_l___n_r_f.html" title="Hardware abstraction layer implementation for nRF52840." alt="" coords="204,153,407,179"/>
-<area shape="rect" id="Node000004" href="$group___h_a_l___p_m.html" title=" " alt="" coords="222,203,389,228"/>
-<area shape="rect" id="Node000007" href="$group___h_a_l___r_n_g.html" title=" " alt="" coords="200,252,411,278"/>
-<area shape="rect" id="Node000008" href="$group___h_a_l___s_c.html" title=" " alt="" coords="235,301,376,327"/>
-<area shape="rect" id="Node000009" href="$group___h_a_l___t_i_m_e_r.html" title=" " alt="" coords="263,351,348,376"/>
-<area shape="rect" id="Node000010" href="$group___h_a_l___u_a_r_t.html" title=" " alt="" coords="261,400,350,426"/>
-<area shape="rect" id="Node000011" href="$group___h_a_l___w_d_t.html" title=" " alt="" coords="232,449,378,475"/>
+<area shape="rect" id="Node000001" title="Hardware abstraction layer for microcontroller peripherals." alt="" coords="5,195,152,236"/>
+<area shape="rect" id="Node000004" href="$group___h_a_l___e_x_t_i_n_t.html" title=" " alt="" coords="226,5,384,31"/>
+<area shape="rect" id="Node000005" href="$group___h_a_l___g_p_i_o.html" title=" " alt="" coords="263,55,348,80"/>
+<area shape="rect" id="Node000003" href="$group___h_a_l___p_m.html" title=" " alt="" coords="222,104,389,130"/>
+<area shape="rect" id="Node000006" href="$group___h_a_l___r_n_g.html" title=" " alt="" coords="200,153,411,179"/>
+<area shape="rect" id="Node000007" href="$group___h_a_l___s_c.html" title=" " alt="" coords="235,203,376,228"/>
+<area shape="rect" id="Node000002" href="$group___h_a_l___s_p_e_c.html" title="Platform&#45;specific HAL header files." alt="" coords="227,252,384,278"/>
+<area shape="rect" id="Node000008" href="$group___h_a_l___t_i_m_e_r.html" title=" " alt="" coords="263,301,348,327"/>
+<area shape="rect" id="Node000009" href="$group___h_a_l___u_a_r_t.html" title=" " alt="" coords="261,351,350,376"/>
+<area shape="rect" id="Node000010" href="$group___h_a_l___w_d_t.html" title=" " alt="" coords="232,400,378,426"/>
 </map>

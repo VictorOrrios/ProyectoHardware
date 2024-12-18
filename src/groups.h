@@ -11,24 +11,28 @@
  *          - Watchdog timer
  *          - Critical sections
  *
- * @defgroup HAL_LPC LPC2105 HAL Implementation
+ * @defgroup HAL_SPEC HAL Platform Specifics
  * @ingroup HAL
- * @brief Hardware abstraction layer implementation for LPC2105
- * @details Platform-specific implementation including:
- *          - ARM7TDMI-S core support
- *          - VIC interrupt controller
- *          - On-chip peripheral access
- *          - Power management features
- *          - Timer configurations
+ * @brief Platform-specific HAL header files
+ * @details Contains header files for supported platforms:
+ *          - LPC2105 (ARM7TDMI-S)
+ *          - nRF52840 (Cortex-M4F)
  *
- * @defgroup HAL_NRF nRF52840 HAL Implementation
- * @ingroup HAL
- * @brief Hardware abstraction layer implementation for nRF52840
- * @details Platform-specific implementation including:
- *          - Cortex-M4F core support
- *          - NVIC interrupt controller
- *          - Advanced power modes
- *          - High-precision timers
+ * @defgroup HAL_LPC LPC2105 Headers
+ * @ingroup HAL_SPEC
+ * @brief Hardware interface definitions for LPC2105
+ * @details Platform-specific definitions including:
+ *          - Register definitions
+ *          - Peripheral addresses
+ *          - Hardware constants
+ *
+ * @defgroup HAL_NRF nRF52840 Headers
+ * @ingroup HAL_SPEC
+ * @brief Hardware interface definitions for nRF52840
+ * @details Platform-specific definitions including:
+ *          - Register definitions
+ *          - Peripheral addresses
+ *          - Hardware constants
  *
  * @defgroup DRV Device Drivers
  * @brief Hardware-independent device drivers

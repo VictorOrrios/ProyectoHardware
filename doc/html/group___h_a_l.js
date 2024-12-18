@@ -1,7 +1,6 @@
 var group___h_a_l =
 [
-    [ "LPC2105 HAL Implementation", "group___h_a_l___l_p_c.html", "group___h_a_l___l_p_c" ],
-    [ "nRF52840 HAL Implementation", "group___h_a_l___n_r_f.html", "group___h_a_l___n_r_f" ],
+    [ "HAL Platform Specifics", "group___h_a_l___s_p_e_c.html", "group___h_a_l___s_p_e_c" ],
     [ "Power Management HAL", "group___h_a_l___p_m.html", "group___h_a_l___p_m" ],
     [ "External Interrupts HAL", "group___h_a_l___e_x_t_i_n_t.html", "group___h_a_l___e_x_t_i_n_t" ],
     [ "GPIO HAL", "group___h_a_l___g_p_i_o.html", "group___h_a_l___g_p_i_o" ],

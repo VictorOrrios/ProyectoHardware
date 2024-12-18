@@ -1,7 +1,7 @@
 var searchData=
 [
   ['hal_0',['HAL',['../group___h_a_l___s_c.html',1,'Critical Section HAL'],['../group___h_a_l___e_x_t_i_n_t.html',1,'External Interrupts HAL'],['../group___h_a_l___g_p_i_o.html',1,'GPIO HAL'],['../group___h_a_l___p_m.html',1,'Power Management HAL'],['../group___h_a_l___r_n_g.html',1,'Random Number Generator HAL'],['../group___h_a_l___t_i_m_e_r.html',1,'Timer HAL'],['../group___h_a_l___u_a_r_t.html',1,'UART HAL'],['../group___h_a_l___w_d_t.html',1,'Watchdog Timer HAL']]],
-  ['hal_20implementation_1',['HAL Implementation',['../group___h_a_l___l_p_c.html',1,'LPC2105 HAL Implementation'],['../group___h_a_l___n_r_f.html',1,'nRF52840 HAL Implementation']]],
+  ['hal_20platform_20specifics_1',['HAL Platform Specifics',['../group___h_a_l___s_p_e_c.html',1,'']]],
   ['hal_5fconsumo_2eh_2',['hal_consumo.h',['../hal__consumo_8h.html',1,'']]],
   ['hal_5fconsumo_5fdormir_3',['hal_consumo_dormir',['../group___h_a_l___p_m.html#gab97be673b1c31c79b0b05b0b57a460f3',1,'hal_consumo.h']]],
   ['hal_5fconsumo_5fesperar_4',['hal_consumo_esperar',['../group___h_a_l___p_m.html#gad0a88ae86cf4c3593c7d176c9f811178',1,'hal_consumo.h']]],
@@ -50,5 +50,6 @@ var searchData=
   ['hal_5fwdt_5finiciar_47',['hal_wdt_iniciar',['../group___h_a_l___w_d_t.html#gae7f2bab268ba875898d51bad663dc5c1',1,'hal_wdt.h']]],
   ['hal_5fwdt_5fregistrar_5fcallback_48',['hal_wdt_registrar_callback',['../group___h_a_l___w_d_t.html#ga7e36ee926559e1fc6ea2757cf3ad8abc',1,'hal_wdt.h']]],
   ['hardware_20abstraction_20layer_49',['Hardware Abstraction Layer',['../group___h_a_l.html',1,'']]],
-  ['hardware_20project_202024_20microkernel_20documentation_50',['Hardware Project 2024 - Microkernel Documentation',['../index.html',1,'']]]
+  ['hardware_20project_202024_20microkernel_20documentation_50',['Hardware Project 2024 - Microkernel Documentation',['../index.html',1,'']]],
+  ['headers_51',['Headers',['../group___h_a_l___l_p_c.html',1,'LPC2105 Headers'],['../group___h_a_l___n_r_f.html',1,'nRF52840 Headers']]]
 ];

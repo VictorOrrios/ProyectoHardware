@@ -1,0 +1,49 @@
+# Project settings
+PROJECT_NAME           = "Hardware Project 2024 - Microkernel"
+PROJECT_BRIEF          = "Real-time microkernel with HAL support for LPC2105 and NRF52840 platforms, featuring event-driven architecture, comprehensive service layer, and interactive game demos"
+PROJECT_NUMBER         = "v1.0.0"
+
+# Input/Output settings
+INPUT                 = src/ lpc/src_lpc/ nrf/src_nrf/ mainpage.dox
+FILE_PATTERNS         = *.h *.dox        # Only process .h and .dox files for documentation
+RECURSIVE             = YES
+OUTPUT_DIRECTORY      = doc
+GENERATE_HTML         = YES
+GENERATE_LATEX        = NO
+
+# Documentation extraction
+EXTRACT_ALL           = YES
+EXTRACT_PRIVATE       = YES
+EXTRACT_STATIC        = YES
+INTERNAL_DOCS         = NO
+
+# Source browsing
+SOURCE_BROWSER        = YES
+INLINE_SOURCES        = YES
+REFERENCES_LINK_SOURCE = YES
+SHOW_FILES            = YES
+SHOW_INCLUDE_FILES    = YES
+
+# Language settings
+OPTIMIZE_OUTPUT_FOR_C  = YES
+TYPEDEF_HIDES_STRUCT  = YES
+
+# Graphs and diagrams
+HAVE_DOT              = YES
+DOT_PATH             = /opt/homebrew/bin
+CALL_GRAPH           = YES
+CALLER_GRAPH         = YES
+DOT_IMAGE_FORMAT     = svg
+INTERACTIVE_SVG      = YES
+DOT_GRAPH_MAX_NODES  = 100
+DOT_GRAPH_TRANSPARENCY = YES
+DOTFILE_DIRS         = .           # Directory where architecture.dot is located
+DOT_MULTI_TARGETS    = YES
+UML_LOOK             = YES         # Makes graphs look more UML-like
+GROUP_GRAPHS         = YES         # Include graphs in groups
+
+# HTML output settings
+GENERATE_TREEVIEW     = YES
+HTML_DYNAMIC_SECTIONS = YES
+SEARCHENGINE          = YES
+FULL_SIDEBAR         = YES
