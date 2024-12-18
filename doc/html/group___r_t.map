@@ -1,0 +1,5 @@
+<map id="Real&#45;Time Core" name="Real&#45;Time Core">
+<area shape="rect" id="Node000001" title="Core real&#45;time functionality and event management." alt="" coords="5,31,119,56"/>
+<area shape="rect" id="Node000002" href="$group___r_t___e_v_e_n_t.html" title="Event types and management system." alt="" coords="167,5,301,31"/>
+<area shape="rect" id="Node000003" href="$group___r_t___f_i_f_o.html" title="Real&#45;time FIFO queue implementation." alt="" coords="187,55,280,80"/>
+</map>

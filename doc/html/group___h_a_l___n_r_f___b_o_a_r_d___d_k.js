@@ -1,0 +1,26 @@
+var group___h_a_l___n_r_f___b_o_a_r_d___d_k =
+[
+    [ "BUTTON_1", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaf58f5adf2c4e479e30f2efaa24e38324", null ],
+    [ "BUTTON_2", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga46acb6114f87027ec8fa196c02ea7d81", null ],
+    [ "BUTTON_3", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaec518359a13ecef01c1f596fea855364", null ],
+    [ "BUTTON_4", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga9bbe94022b11df96e0f4e9147822ed79", null ],
+    [ "BUTTON_PULL", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaa7b683d62dfd610a8ed96987efdbc1d0", null ],
+    [ "BUTTONS_ACTIVE_STATE", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga0f85790936579cea8a7edcd1f91284d6", null ],
+    [ "BUTTONS_LIST", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga2d1c706fb317c895d5263e0c274863a9", null ],
+    [ "BUTTONS_NUMBER", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga518e97ed84f34c5d224d8816d9e17208", null ],
+    [ "LED_1", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaaf81f5fa7d1e779f83e9bf4ce631a7b6", null ],
+    [ "LED_2", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gae60a8c1e03b38463f77d556a4a0a8a3b", null ],
+    [ "LED_3", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga07b3fb51ae7c3cc824dd714b46c1b2b6", null ],
+    [ "LED_4", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaec84038372d7a55c8b358398978e1dac", null ],
+    [ "LEDS_ACTIVE_STATE", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga8315d68f769a028273fb5656d720196b", null ],
+    [ "LEDS_LIST", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga6b31561af4f24f9c3cb1c65e46f15a00", null ],
+    [ "LEDS_NUMBER", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gab6fbd30119675a95c74c423b5fde7a97", null ],
+    [ "MONITOR1", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaa185f5ed82dad85796a1615391cc80a0", null ],
+    [ "MONITOR2", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaace8d4bec7c3b426e6c4b901f3b82c87", null ],
+    [ "MONITOR3", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaa15be5af44f60f5c46222385f8bb54c8", null ],
+    [ "MONITOR4", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gac60edb128b9692d46ea87bc7a1a34a28", null ],
+    [ "MONITOR_ACTIVE_STATE", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga8949808f5557f87a211b273f2bcd69cd", null ],
+    [ "MONITOR_LIST", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gad0aa4bc7898130085c4a6c83ef03048f", null ],
+    [ "MONITOR_NUMBER", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#gaf45214c3cb8f87717ec5990290d2afa3", null ],
+    [ "NRF_GPIO_PIN_MAP", "group___h_a_l___n_r_f___b_o_a_r_d___d_k.html#ga0d66f2aaf7771ca4424237174032bf6a", null ]
+];

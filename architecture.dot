@@ -1,0 +1,13 @@
+digraph system_architecture {
+    rankdir=TB;
+    node [shape=box, style=filled, fillcolor=lightblue];
+    
+    Application [label="Application Layer\nGame Demos"];
+    Services [label="Service Layer\nLogging, Stats, Alarms"];
+    Drivers [label="Device Drivers\nLEDs, Buttons, UART"];
+    HAL [label="Hardware Abstraction Layer\nLPC2105/NRF52840"];
+    
+    Application -> Services;
+    Services -> Drivers;
+    Drivers -> HAL;
+} 

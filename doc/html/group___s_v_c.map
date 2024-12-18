@@ -1,0 +1,7 @@
+<map id="Services" name="Services">
+<area shape="rect" id="Node000001" title="High&#45;level service modules." alt="" coords="5,80,78,106"/>
+<area shape="rect" id="Node000005" href="$group___s_v_c___a_l_a_r_m.html" title="Real&#45;time alarm and timer management." alt="" coords="136,5,240,31"/>
+<area shape="rect" id="Node000002" href="$group___s_v_c___l_o_g.html" title="Logging and debug output functionality." alt="" coords="131,55,245,80"/>
+<area shape="rect" id="Node000003" href="$group___s_v_c___s_t_a_t_s.html" title="Performance monitoring and statistics collection." alt="" coords="126,104,250,130"/>
+<area shape="rect" id="Node000004" href="$group___t_e_s_t_i_n_g.html" title="System component testing and validation." alt="" coords="148,153,228,179"/>
+</map>
