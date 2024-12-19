@@ -206,7 +206,6 @@ void svc_alarma_activar(uint32_t retardo_ms, uint32_t ID_evento, uint32_t auxDat
     next = 0;
   }
 
-  // TODO: do not set if `next` is equal to current timeout
   // KEY: do after setting next to 0 if next == -1
   if (next != next_trigger_timeout && next != -2)
   {

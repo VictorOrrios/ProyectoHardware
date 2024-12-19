@@ -250,7 +250,6 @@ void hal_tiempo_reloj_periodico_tick(uint32_t periodo_en_tick, void(*funcion_cal
 			NRF_TIMER1->TASKS_START = 1;
 	} else {
 		// If "periodo_en_tick" is 0, stop TIMER1 and disable the IRQs for it
-		// TODO: NRF_TIMER1->EVENTS_COMPARE[0] = 0;?
 		NRF_TIMER1->TASKS_STOP = 1;
 		NVIC_DisableIRQ(TIMER1_IRQn);
 	}
