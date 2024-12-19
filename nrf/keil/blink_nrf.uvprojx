@@ -658,11 +658,6 @@
               <FilePath>..\src_nrf\hal_consumo_nrf.c</FilePath>
             </File>
             <File>
-              <FileName>hal_gpio_nrf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\src_nrf\hal_gpio_nrf.h</FilePath>
-            </File>
-            <File>
               <FileName>hal_ext_int_nrf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src_nrf\hal_ext_int_nrf.c</FilePath>
@@ -1347,11 +1342,6 @@
               <FileName>hal_consumo_nrf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src_nrf\hal_consumo_nrf.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_gpio_nrf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\src_nrf\hal_gpio_nrf.h</FilePath>
             </File>
             <File>
               <FileName>hal_ext_int_nrf.c</FileName>
@@ -2176,11 +2166,6 @@
               <FileName>hal_consumo_nrf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src_nrf\hal_consumo_nrf.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_gpio_nrf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\src_nrf\hal_gpio_nrf.h</FilePath>
             </File>
             <File>
               <FileName>hal_ext_int_nrf.c</FileName>

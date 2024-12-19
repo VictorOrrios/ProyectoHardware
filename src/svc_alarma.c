@@ -28,7 +28,7 @@
 /**
  * @brief Maximum number of concurrent alarms
  */
-#define svc_ALARMAS_MAX 4
+#define svc_ALARMAS_MAX 5
 
 /**
  * @brief Alarm structure representing a single alarm instance

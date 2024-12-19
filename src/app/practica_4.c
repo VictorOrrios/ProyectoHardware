@@ -179,22 +179,6 @@ void blink_v3_bis(uint32_t id)
 }
 
 /**
- * @brief Feed watchdog timer periodically
- * 
- * Prevents system reset by feeding watchdog timer at regular intervals.
- * Logs each feed operation for debugging.
- * 
- * @param evento Event type (always ev_FEED_WDT)
- * @param handler_id Watchdog handler ID to feed
- */
-void feedWDT_cs(uint32_t evento, uint32_t handler_id)
-{
-	LOG_DEBUG("Feeding watchdog");
-	svc_log_procesar();
-	drv_wdt_feed();
-}
-
-/**
  * @brief Interactive LED pattern game launcher
  *
  * @param retardoSpawnInicial Initial spawn delay in milliseconds
@@ -206,12 +190,8 @@ void bit_counterstrike_launcher(uint32_t retardoSpawnInicial, uint32_t num_leds,
     // Initialize watchdog driver
     drv_wdt_iniciar(DRV_WDT_TIMEOUT_MS_CS, MONITOR3);
 
-    // Subscribe to watchdog feed event
-    svc_GE_suscribir(ev_FEED_WDT, feedWDT_cs);
-
-    // Activate watchdog alarm
-    svc_alarma_activar(svc_alarma_codificar(1, WDT_FEED_INTERVAL_MS_CS), ev_FEED_WDT, 0);
     LOG_DEBUG("Watchdog initialized");
+    svc_log_procesar();
 
     // Escoger cual es menor si el n de botones o de leds y como maximo 32
     uint32_t limitador = 0;
