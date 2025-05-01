@@ -32,7 +32,7 @@ This project is a lightweight microkernel designed for the **LPC2105** and **nRF
 
 The project documentation is generated using **Doxygen** and is available in:
 
-'doc/html/index.html'
+doc/html/index.html
 
 ##Licence
 
