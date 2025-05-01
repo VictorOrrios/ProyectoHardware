@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_ext_int.h
+ * @ingroup HAL
+ * @brief External Interrupts HAL Interface
+ * @details Interface for the External Interrupts Hardware Abstraction Layer.
+ *          Provides functions to manage external interrupts and wake-up
+ *          capabilities.
+ *
+ * @defgroup HAL_EXTINT External Interrupts HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_ext_int.h - External Interrupts HAL Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the External Interrupts Hardware Abstraction Layer.
- *   Provides functions to manage external interrupts and wake-up
- *   capabilities from low power modes.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_EXT_INT
 #define HAL_EXT_INT

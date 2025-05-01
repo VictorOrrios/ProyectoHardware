@@ -1,20 +1,17 @@
-/* *****************************************************************************
+/**
+ * @file rt_fifo.c
+ * @ingroup RT_FIFO
+ * @brief Real-Time FIFO Queue Implementation
+ * @details Implements the FIFO queue operations defined in rt_fifo.h using
+ *          a circular buffer for efficient memory usage.
+ *
  * Hardware Project 2024
- * 
- * rt_fifo.c - Real-Time FIFO Queue Implementation
- * 
- * Description:
- *   Implements the FIFO queue operations defined in rt_fifo.h. Uses a circular
- *   buffer for efficient memory usage and provides thread-safe operations
- *   through critical sections. Includes overflow protection and statistical
- *   tracking of queued events.
- * 
- * Implementation Notes:
- *   - Uses modulo arithmetic for circular buffer management
- *   - Implements critical sections for thread safety
- *   - Maintains separate counters for statistics
- *   - Includes overflow detection with hardware signaling
- * *****************************************************************************/
+ * EINA - University of Zaragoza
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "rt_fifo.h"
 #include "drv_monitor.h"
@@ -22,11 +19,36 @@
 #include "svc_log.h"
 #include "svc_stats.h"
 
-HAL_GPIO_PIN_T pin_monitor_overflow_global;
+/**
+ * @brief Maximum size of the event queue
+ * 
+ * Defines how many events can be pending simultaneously.
+ * @warning Must be a power of 2 to optimize modulo operations
+ */
+#define EVENT_QUEUE_SIZE 64
 
-typedef uint32_t indice_cola_t; // Define the type for queue indices
+/**
+ * @brief Structure that defines an event in the system
+ * 
+ * Each event contains an identifier, auxiliary data, and a timestamp
+ * indicating when the event was queued.
+ */
+typedef struct{
+    EVENTO_T ID_EVENTO; ///< Event type identifier
+    uint32_t auxData;   ///< Event-specific auxiliary data
+    Tiempo_us_t TS;     ///< Timestamp in microseconds
+} EVENTO;
 
+/** @brief Monitor pin for queue overflow detection */
+static HAL_GPIO_PIN_T pin_monitor_overflow_global;
+
+/** @brief Type definition for queue indices */
+typedef uint32_t indice_cola_t;
+
+/** @brief Circular buffer for event storage */
 static volatile EVENTO fifo_task_queue[EVENT_QUEUE_SIZE];
+
+/** @brief Statistics counter for each event type */
 static volatile uint32_t total_times_queued_event[EVENT_TYPES];
 
 static volatile indice_cola_t siguiente_indice_encolar = 0;

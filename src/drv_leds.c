@@ -1,30 +1,20 @@
-/* *****************************************************************************
+/**
+ * @file drv_leds.c
+ * @ingroup DRV_LEDS
+ * @brief LED Driver Implementation
+ * @details Implementation of LED control operations using board-specific configurations.
+ *
  * Hardware Project 2024
- * 
- * drv_leds.c - LED Driver Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the LED driver module. Provides hardware-independent
- *   LED control services. Uses board configuration for:
- *   - LEDS_NUMBER: Number of available LEDs
- *   - LEDS_LIST: Array of LED GPIO pins
- *   - LEDS_ACTIVE_STATE: Active level for LEDs (high/low)
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_gpio.h"
 #include "drv_leds.h"
 #include "board.h"
-
 
 #if LEDS_NUMBER > 0
 	static const uint8_t led_list[LEDS_NUMBER] = LEDS_LIST;
@@ -86,5 +76,3 @@ void drv_led_conmutar(uint32_t id){
 		}
   #endif //LEDS_NUMBER > 0		
 }
-
-//otras???

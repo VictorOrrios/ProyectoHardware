@@ -1,22 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_gpio.h
+ * @ingroup HAL
+ * @brief GPIO HAL Interface
+ * @details Interface for the GPIO Hardware Abstraction Layer.
+ *          Provides functions to configure and access GPIO pins
+ *          independently of the specific hardware.
+ *
+ * @defgroup HAL_GPIO GPIO HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_gpio.h - GPIO Hardware Abstraction Layer Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the GPIO Hardware Abstraction Layer. Provides functions
- *   to configure and access GPIO pins independently of the specific hardware.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_GPIO
 #define HAL_GPIO

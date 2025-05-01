@@ -1,29 +1,25 @@
-/* *****************************************************************************
+/**
+ * @file hal_consumo.h
+ * @ingroup HAL
+ * @brief Power Management HAL Interface
+ * @details Interface for the Power Management Hardware Abstraction Layer.
+ *          Provides functions to manage different power consumption modes
+ *          of the microcontroller.
+ *
+ * @defgroup HAL_PM Power Management HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_consumo.h - Power Management HAL Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Power Management Hardware Abstraction Layer.
- *   Provides functions to manage different power consumption modes
- *   of the microcontroller, allowing power optimization based on
- *   application needs.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_CONSUMO
 #define HAL_CONSUMO
-
-#include <stdint.h>
 
 /**
  * @brief Initialize power management system

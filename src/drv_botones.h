@@ -1,6 +1,21 @@
 /**
- * @brief Button Driver Interface
  * @file drv_botones.h
+ * @ingroup DRV
+ * @brief Button Driver Interface
+ * @details Interface for the button driver module. Provides hardware-independent
+ *          functions to initialize and handle button events, including debouncing
+ *          and double-press detection.
+ *
+ * @defgroup DRV_BUTTONS Button Driver
+ * @ingroup DRV
+ * @{
+ *
+ * Hardware Project 2024
+ * EINA - University of Zaragoza
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
  */
 
 #ifndef DRV_BOTONES
@@ -22,5 +37,7 @@ uint32_t drv_botones_iniciar(void (*callback)(),
                             uint32_t ID_evento_retardo,
                             uint32_t ID_evento_doble,
                             uint32_t timeout_doble_ms);
+
+/** @} */ // End of DRV_BUTTONS group
 
 #endif // DRV_BOTONES

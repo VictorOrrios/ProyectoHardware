@@ -1,22 +1,21 @@
-/* *****************************************************************************
+/**
+ * @file drv_tiempo.h
+ * @ingroup DRV
+ * @brief Timer Driver Interface
+ * @details Interface for the timer driver module. Provides hardware-independent
+ *          timing services and types for time management.
+ *
+ * @defgroup DRV_TIMER Timer Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_tiempo.h - Timer Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the timer driver module. Provides hardware-independent
- *   timing services and types for time management.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_TIEMPO
 #define DRV_TIEMPO
@@ -71,5 +70,7 @@ Tiempo_ms_t drv_tiempo_esperar_hasta_ms(Tiempo_ms_t ms);
  * @param ID_evento Event ID to queue
  */
 void drv_tiempo_periodico_ms(Tiempo_ms_t periodo_ms, void(*funcion_encolar_evento)(), uint32_t ID_evento);
+
+/** @} */ // End of DRV_TIMER group
 
 #endif

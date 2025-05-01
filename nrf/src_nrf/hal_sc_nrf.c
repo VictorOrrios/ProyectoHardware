@@ -1,41 +1,30 @@
-/* *****************************************************************************
+/**
+ * @file hal_sc_nrf.c
+ * @ingroup HAL_NRF
+ * @brief Critical Section HAL implementation for nRF52840
+ * @details Implementation of the Critical Section Hardware Abstraction Layer for
+ *          the nRF52840 microcontroller. Uses PRIMASK register for interrupt control,
+ *          supporting nested critical sections by preserving the previous state.
+ *
+ * @defgroup HAL_NRF_SC Critical Sections
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_sc_nrf.c - Critical Section HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Critical Section Hardware Abstraction Layer for
- *   the nRF52840 microcontroller. Uses PRIMASK register for interrupt control,
- *   supporting nested critical sections by preserving the previous state.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_sc.h"
 #include "nrf.h"
 
-#ifdef DEBUG
-#include <assert.h>
-#endif
-
 /**
  * @brief Initialize the critical section manager
  */
-void hal_sc_iniciar(void) {
-    // __enable_irq();
-    
-    #ifdef DEBUG
-    assert(__get_PRIMASK() == 0);
-    #endif
-}
+void hal_sc_iniciar(void) {}
 
 /**
  * @brief Enter a critical section
@@ -45,10 +34,6 @@ void hal_sc_iniciar(void) {
 uint32_t hal_sc_entrar(void) {
     uint32_t primask = __get_PRIMASK();
     __disable_irq();
-    
-    #ifdef DEBUG
-    assert(__get_PRIMASK() == 1);
-    #endif
     
     return primask;
 }
@@ -61,3 +46,5 @@ uint32_t hal_sc_entrar(void) {
 void hal_sc_salir(uint32_t previous_state) {
     __set_PRIMASK(previous_state);
 }
+
+/** @} */ // End of HAL_NRF_SC group

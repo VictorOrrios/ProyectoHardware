@@ -1,24 +1,23 @@
-/* *****************************************************************************
+/**
+ * @file drv_consumo.h
+ * @ingroup DRV
+ * @brief Power Management Driver Interface
+ * @details Interface for the power management driver module. Defines functions to
+ *          manage different power consumption modes of the microcontroller to
+ *          optimize system power usage.
+ *
+ * @defgroup DRV_POWER Power Management Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_consumo.h - Power Management Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the power management driver module. Defines functions to
- *   manage different power consumption modes of the microcontroller to
- *   optimize system power usage.
- * *****************************************************************************/
- 
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
+
 #ifndef DRV_CONSUMO
 #define DRV_CONSUMO
 
@@ -53,5 +52,7 @@ void drv_consumo_esperar(void);
  * @pre Driver must be initialized through drv_consumo_iniciar()
  */
 void drv_consumo_dormir(void);
+
+/** @} */ // End of DRV_POWER group
 
 #endif

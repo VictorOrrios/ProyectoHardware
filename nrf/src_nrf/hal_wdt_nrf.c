@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_wdt_nrf.c
+ * @ingroup HAL_NRF
+ * @brief Watchdog Timer HAL implementation for nRF52840
+ * @details Implementation of the Watchdog Timer Hardware Abstraction Layer for
+ *          the nRF52840 microcontroller. This module manages watchdog configuration
+ *          and handling, supporting interrupt-based watchdog operation.
+ *
+ * @defgroup HAL_NRF_WDT Watchdog Timer
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_wdt_nrf.c - Watchdog Timer HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Watchdog Timer Hardware Abstraction Layer for
- *   the nRF52840 microcontroller. This module manages watchdog configuration
- *   and handling, supporting interrupt-based watchdog operation.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_wdt.h"
 #include "nrf.h"
@@ -86,3 +85,5 @@ void WDT_IRQHandler(void) {
         }
     }
 }
+
+/** @} */ // End of HAL_NRF_WDT group

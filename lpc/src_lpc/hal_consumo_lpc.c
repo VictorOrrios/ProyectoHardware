@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_consumo_lpc.c
+ * @ingroup HAL_LPC
+ * @brief Power Management HAL implementation for LPC2105
+ * @details Implementation of the Power Management Hardware Abstraction Layer for
+ *          the LPC2105 microcontroller. This module provides functions to manage
+ *          different power modes (idle and sleep) to optimize power consumption.
+ *
+ * @defgroup HAL_LPC_PM Power Management
+ * @ingroup HAL_LPC
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_consumo_lpc.c - Power Management HAL for LPC2105
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Power Management Hardware Abstraction Layer for
- *   the LPC2105 microcontroller. This module provides functions to manage
- *   different power modes (idle and sleep) to optimize power consumption.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_consumo.h"
 #include "board.h"
@@ -41,7 +40,7 @@ void hal_consumo_iniciar(void) {}
  * It wakes up on any interrupt. Moderate power consumption.
  */
 void hal_consumo_esperar(void) {
-    //EXTWAKE |= 0b111;  // NOTE: Reassign value as it might have been written from elsewhere
+    EXTWAKE |= 0b111;  // NOTE: Reassign value as it might have been written from elsewhere
     PCON = 0b1;        // Put microcontroller in IDLE mode
 }
 
@@ -57,3 +56,5 @@ void hal_consumo_dormir(void) {
     PCON |= 0b10;      // Enter sleep mode
     Switch_to_PLL();   // Restore clock on wake-up
 }
+
+/** @} */ // End of HAL_LPC_PM group

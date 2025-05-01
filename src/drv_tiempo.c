@@ -1,22 +1,16 @@
-/* *****************************************************************************
+/**
+ * @file drv_tiempo.c
+ * @ingroup DRV_TIMER
+ * @brief Timer Driver Implementation
+ * @details Implementation of system timing and periodic event management.
+ *
  * Hardware Project 2024
- * 
- * drv_tiempo.c - Timer Driver Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the timer driver module. Provides timing functions
- *   and hardware abstraction for system timers and periodic events.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
  
 #include "drv_tiempo.h"
 #include "hal_tiempo.h"
@@ -38,6 +32,8 @@ void drv_tiempo_iniciar(void){
     factorTickToUs = hal_tiempo_iniciar_tick();
 }
 
+
+
 /**
  * @brief Get current time in microseconds
  * 
@@ -45,7 +41,7 @@ void drv_tiempo_iniciar(void){
  * @pre Driver must be initialized
  */
 Tiempo_us_t drv_tiempo_actual_us(void){
-    return hal_tiempo_actual_tick()/factorTickToUs;
+		return hal_tiempo_actual_us();
 }
 
 /**
@@ -55,7 +51,7 @@ Tiempo_us_t drv_tiempo_actual_us(void){
  * @pre Driver must be initialized
  */
 Tiempo_ms_t drv_tiempo_actual_ms(void){
-    return drv_tiempo_actual_us()/(1000);    
+		return hal_tiempo_actual_ms();
 }
 
 /**

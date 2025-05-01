@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file board_nrf52840dk.h
+ * @ingroup HAL_NRF
+ * @brief Pin Definitions for nRF52840 DK
+ * @details Pin definitions and configurations for the nRF52840 Development Kit
+ *          (PCA10056). This file defines GPIO mappings for LEDs, buttons, and
+ *          monitoring signals.
+ *
+ * @defgroup HAL_NRF_BOARD_DK Board Support - nRF52840 DK
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * board_nrf52840dk.h - Pin Definitions for nRF52840 DK
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Pin definitions and configurations for the nRF52840 Development Kit
- *   (PCA10056). This file defines GPIO mappings for LEDs, buttons, and
- *   monitoring signals.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef BOARD_NRF
 #define BOARD_NRF
@@ -65,5 +64,7 @@
 #define MONITOR_ACTIVE_STATE 1
 
 #define MONITOR_LIST { MONITOR1, MONITOR2, MONITOR3, MONITOR4 }
+
+/** @} */ // End of HAL_NRF_BOARD_DK group
 
 #endif

@@ -1,23 +1,16 @@
-/* *****************************************************************************
+/**
+ * @file drv_monitor.c
+ * @ingroup DRV_MONITOR
+ * @brief Debug Monitor Driver Implementation
+ * @details Implementation of GPIO-based debug monitor functionality.
+ *
  * Hardware Project 2024
- * 
- * drv_monitor.c - Debug Monitor Driver Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the debug monitor driver module. Manages GPIO pins
- *   used as debug monitors, allowing temporal tracking of program execution
- *   through digital signals.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_gpio.h"
 #include "drv_monitor.h"

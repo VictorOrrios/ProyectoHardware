@@ -1,27 +1,20 @@
-/* *****************************************************************************
+/**
+ * @file drv_rng.c
+ * @ingroup DRV_RNG
+ * @brief Random Number Generator Driver Implementation
+ * @details Implementation of random number generation with uniform distribution
+ *          and retry mechanisms.
+ *
  * Hardware Project 2024
- * 
- * drv_rng.c - Random Number Generator Driver Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Random Number Generator driver module. Provides
- *   functions to generate random numbers with uniform distribution, including
- *   retry mechanisms to ensure reliability.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "drv_rng.h"
 #include "hal_rng.h"
-#include "board.h"
 
 // Maximum number of retries when getting a random byte
 #define RNG_MAX_RETRIES 3
@@ -117,4 +110,3 @@ uint8_t drv_rng_get_bytes(uint8_t* buffer, uint32_t length) {
 void drv_rng_stop(void) {
     hal_rng_stop();
 }
-

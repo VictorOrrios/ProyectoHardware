@@ -1,22 +1,21 @@
-/* *****************************************************************************
+/**
+ * @file drv_sc.h
+ * @ingroup DRV
+ * @brief Critical Section Driver Interface
+ * @details Interface for the critical section driver module. Provides functions
+ *          to manage nested critical sections with proper interrupt control.
+ *
+ * @defgroup DRV_SC Critical Section Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_sc.h - Critical Section Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the critical section driver module. Provides functions to
- *   manage nested critical sections with proper interrupt control.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_SC
 #define DRV_SC
@@ -41,5 +40,7 @@ uint32_t drv_sc_entrar(void);
  * @brief Exits a critical section, enabling interrupts if this is the outermost exit
  */
 void drv_sc_salir(void);
+
+/** @} */ // End of DRV_SC group
 
 #endif // DRV_SC

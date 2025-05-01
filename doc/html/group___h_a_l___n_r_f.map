@@ -1,0 +1,6 @@
+<map id="nRF52840 Headers" name="nRF52840 Headers">
+<area shape="rect" id="Node000001" title="Hardware interface definitions for nRF52840." alt="" coords="211,35,345,60"/>
+<area shape="rect" id="Node000004" href="$group___h_a_l___n_r_f___b_o_a_r_d___d_k.html" title=" " alt="" coords="393,5,592,31"/>
+<area shape="rect" id="Node000003" href="$group___h_a_l___n_r_f___b_o_a_r_d___d_o_n_g_l_e.html" title=" " alt="" coords="404,55,581,96"/>
+<area shape="rect" id="Node000002" href="$group___h_a_l___s_p_e_c.html" title="Platform&#45;specific HAL header files." alt="" coords="5,35,163,60"/>
+</map>

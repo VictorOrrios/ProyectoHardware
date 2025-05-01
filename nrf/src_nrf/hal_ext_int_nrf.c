@@ -1,24 +1,23 @@
-/* *****************************************************************************
+/**
+ * @file hal_ext_int_nrf.c
+ * @ingroup HAL_NRF
+ * @brief External Interrupts HAL implementation for nRF52840
+ * @details Implementation of the External Interrupts Hardware Abstraction Layer for
+ *          the nRF52840 microcontroller. This module manages external interrupt
+ *          configuration and handling using the GPIOTE peripheral, including wake-up
+ *          functionality from low power modes.
+ *
+ * @defgroup HAL_NRF_EXTINT External Interrupts
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_ext_int_nrf.c - External Interrupts HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the External Interrupts Hardware Abstraction Layer for
- *   the nRF52840 microcontroller. This module manages external interrupt
- *   configuration and handling using the GPIOTE peripheral, including wake-up
- *   functionality from low power modes.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_ext_int.h"
 #include "board.h"
@@ -113,7 +112,7 @@ void hal_ext_int_deshabilitar_int(uint32_t pin) {
 
 /**
  * @brief Enable wake-up capability for a pin
- * @see: https://yliu.eng.wayne.edu/teaching/IE5995/Week3_Arduino.pdf
+ * @see https://yliu.eng.wayne.edu/teaching/IE5995/Week3_Arduino.pdf
  */
 void hal_ext_int_habilitar_despertar(uint32_t pin) {
     // Configure pin to wake up from System OFF mode
@@ -125,7 +124,7 @@ void hal_ext_int_habilitar_despertar(uint32_t pin) {
 
 /**
  * @brief Disable wake-up capability for a pin
- * @see: https://yliu.eng.wayne.edu/teaching/IE5995/Week3_Arduino.pdf
+ * @see https://yliu.eng.wayne.edu/teaching/IE5995/Week3_Arduino.pdf
  */
 void hal_ext_int_deshabilitar_despertar(uint32_t pin) {
     // Disable event detection for wake-up
@@ -165,3 +164,5 @@ uint8_t hal_ext_int_get_estado_pin(uint32_t pin){
     uint32_t masc = (1UL << pin);
 	return (uint8_t)((NRF_GPIO->IN & masc)!=0);
 }
+
+/** @} */ // End of HAL_NRF_EXTINT group

@@ -1,0 +1,5 @@
+<map id="src/drv_tiempo.h" name="src/drv_tiempo.h">
+<area shape="rect" id="Node000001" title="Timer Driver Interface." alt="" coords="5,5,124,31"/>
+<area shape="rect" id="Node000002" href="$rt__fifo_8h.html" title="Real&#45;Time FIFO Queue Manager." alt="" coords="21,79,108,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,46,67,79,62,79,62,46"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="lpc/src_lpc/board_lpc.h" name="lpc/src_lpc/board_lpc.h">
+<area shape="rect" id="Node000001" title="LPC2105 board pin definitions and configurations." alt="" coords="46,5,201,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,95,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,33,75,70,71,66,109,29"/>
+<area shape="rect" id="Node000003" href="$reserva__gpio__lpc2105_8h.html" title="GPIO Pin Reservations for LPC2105." alt="" coords="119,79,277,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,30,177,66,173,70,134,33"/>
+</map>

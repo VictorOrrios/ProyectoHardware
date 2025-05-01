@@ -1,22 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_tiempo.h
+ * @ingroup HAL
+ * @brief Timer HAL Interface
+ * @details Interface for the Timer Hardware Abstraction Layer.
+ *          Provides functions to manage hardware timers independently
+ *          of the specific platform.
+ *
+ * @defgroup HAL_TIMER Timer HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_tiempo.h - Timer HAL Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Timer Hardware Abstraction Layer. Provides functions
- *   to manage hardware timers independently of the specific platform.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_TIEMPO
 #define HAL_TIEMPO
@@ -50,6 +50,20 @@ void hal_tiempo_iniciar_tick2(uint64_t intervalo);
  * @return uint64_t Total number of ticks since initialization
  */
 uint64_t hal_tiempo_actual_tick(void);
+
+/**
+ * @brief Get current time in microseconds
+ * 
+ * @return uint64_t Total microseconds that has passed since initialization
+ */
+uint64_t hal_tiempo_actual_us(void);
+
+/**
+ * @brief Get current time in miliseconds
+ * 
+ * @return uint64_t Total miliseconds that has passed since initialization
+ */
+uint64_t hal_tiempo_actual_ms(void);
 
 /**
  * @brief Configure periodic timer callback

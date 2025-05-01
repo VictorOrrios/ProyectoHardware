@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_wdt.h
+ * @ingroup HAL
+ * @brief Watchdog Timer HAL Interface
+ * @details Interface for the Watchdog Timer Hardware Abstraction Layer.
+ *          Provides functions to configure and manage the hardware
+ *          watchdog timer for system supervision.
+ *
+ * @defgroup HAL_WDT Watchdog Timer HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_wdt.h - Watchdog Timer HAL Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Watchdog Timer Hardware Abstraction Layer. Provides
- *   functions to configure and manage the hardware watchdog timer for
- *   system supervision and recovery from software failures.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_WDT
 #define HAL_WDT

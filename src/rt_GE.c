@@ -1,42 +1,57 @@
-/* *****************************************************************************
+/**
+ * @file rt_GE.c
+ * @ingroup RT_EVENT
+ * @brief Real-Time Event Manager Implementation
+ * @details Implements the event management system defined in rt_GE.h. Provides
+ *          a central event dispatch mechanism with support for multiple subscribers
+ *          per event type.
+ *
  * Hardware Project 2024
- * 
- * rt_GE.c - Real-Time Event Manager Implementation
- * 
- * Description:
- *   Implements the event management system defined in rt_GE.h. Provides
- *   a central event dispatch mechanism with support for multiple subscribers
- *   per event type. Handles power management through inactivity detection
- *   and includes protection against subscription overflow.
- * 
- * Implementation Notes:
- *   - Uses array-based storage for subscribers
- *   - Implements power management through idle/sleep modes
- *   - Provides automatic inactivity detection
- *   - Includes overflow protection for subscriber lists
- * *****************************************************************************/
+ * EINA - University of Zaragoza
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "rt_GE.h"
 #include "rt_fifo.h"
 #include "drv_consumo.h"
-#include "board.h"
+#include "rt_evento_t.h"
 #include "drv_monitor.h"
 #include "svc_alarma.h"
 #include "svc_log.h"
 #include <string.h>
 
-typedef struct
-{
-    void (*callback)();
-    EVENTO_T evento;
+/**
+ * @brief Maximum number of subscribers per event
+ */
+#define rt_GE_MAX_SUSCRITOS 4
+
+/**
+ * @brief Inactivity timeout in milliseconds
+ */
+#define INACTIVITY_TIMEOUT_MS 20000
+
+/** 
+ * @brief Subscriber information structure
+ */
+typedef struct {
+    void (*callback)();     ///< Callback function to be called when event occurs
+    EVENTO_T evento;        ///< Event type this subscriber is interested in
 } Suscriptor;
 
+/** @brief Array of subscribers for each event type */
 static Suscriptor suscriptores[EVENT_TYPES][rt_GE_MAX_SUSCRITOS];
+
+/** @brief Number of subscribers for each event type */
 static uint32_t num_suscriptores[EVENT_TYPES];
 static uint32_t monitor_overflow_global;
 
 // Lista de eventos de usuario definida en rt_evento_t.h
 static const EVENTO_T eventos_usuario[] = ev_USUARIO;
+
+void rt_GE_tratar(uint32_t evento, uint32_t auxiliar); // Early definition, gets implemented later
 
 /**
  * @brief Initialize the event manager
@@ -74,7 +89,6 @@ void rt_GE_lanzador(void)
         if (rt_FIFO_extraer(&evento, &auxData, &timestamp))
         {
             // Process event
-            // rt_GE_tratar(evento, auxData);
             for (uint32_t i = 0; i < num_suscriptores[evento]; i++)
             {
                 if (suscriptores[evento][i].callback != NULL)
@@ -86,11 +100,9 @@ void rt_GE_lanzador(void)
         else
         {
             // No events, enter idle mode
-						// LOG_DEBUG("Lanzador entrando en modo de espera...");
             drv_consumo_esperar();
             // exiting idle mode
         }
-				// svc_log_procesar();
     }
 }
 

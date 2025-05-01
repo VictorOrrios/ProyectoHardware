@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_wdt_lpc.c
+ * @ingroup HAL_LPC
+ * @brief Watchdog Timer HAL implementation for LPC2105
+ * @details Implementation of the Watchdog Timer Hardware Abstraction Layer for
+ *          the LPC2105 microcontroller. This module manages watchdog configuration
+ *          and handling, supporting interrupt-based watchdog operation.
+ *
+ * @defgroup HAL_LPC_WDT Watchdog Timer
+ * @ingroup HAL_LPC
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_wdt_lpc.c - Watchdog Timer HAL for LPC2105
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Watchdog Timer Hardware Abstraction Layer for
- *   the LPC2105 microcontroller. This module manages watchdog configuration
- *   and handling, supporting interrupt-based watchdog operation.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_wdt.h"
 #include "board.h"
@@ -68,8 +67,11 @@ void hal_wdt_iniciar(uint32_t timeout_ms) {
 
     __enable_irq();  // Re-enable global interrupts
 
-    // Configure WDT in interrupt-only mode
-    WDMOD = 0b01;
+    // Configure WDT in reset mode
+    WDMOD = 0b11;
+		
+		// Configure WDT in interrupt mode
+    //WDMOD = 0b01;
 
     // Feed WDT to start timer
     hal_wdt_feed();
@@ -95,3 +97,5 @@ void hal_wdt_feed(void) {
 void hal_wdt_registrar_callback(void (*callback)(void)) {
     wdt_callback = callback;
 }
+
+/** @} */ // End of HAL_LPC_WDT group

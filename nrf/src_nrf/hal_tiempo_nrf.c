@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_tiempo_nrf.c
+ * @ingroup HAL_NRF
+ * @brief Timer HAL implementation for nRF52840
+ * @details Implementation of the Timer Hardware Abstraction Layer for the nRF52840
+ *          microcontroller. Provides high-precision timing using hardware timers
+ *          and supports both SysTick and Timer0/Timer1 implementations.
+ *
+ * @defgroup HAL_NRF_TIMER Timer Management
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_tiempo_nrf.c - Timer HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Timer Hardware Abstraction Layer for the nRF52840
- *   microcontroller. Provides high-precision timing using hardware timers
- *   and supports both SysTick and Timer0/Timer1 implementations.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_TIEMPO
 #define HAL_TIEMPO
@@ -188,6 +187,39 @@ uint64_t hal_tiempo_actual_tick(void){
 }
 
 /**
+ * @brief Get current time in microseconds
+ * 
+ * @return uint64_t Total microseconds that has passed since initialization
+ */
+uint64_t hal_tiempo_actual_us(void){
+		return hal_tiempo_actual_tick() >> 4;
+}
+
+/**
+ * @brief Fast divide by 16000 using bit magic
+ * 
+ * @return uint64_t value/16000
+ */
+uint64_t divide_by_16000(uint64_t value) {
+		// Precision for 1590 days
+		// s = 31
+		// M = 2^s/1000 = 2147483
+		// s +4 to divide by 16
+		// 16000.00483...
+    return (value * 2147483U) >> 35;
+}
+
+/**
+ * @brief Get current time in miliseconds
+ * 
+ * @return uint64_t Total miliseconds that has passed since initialization
+ */
+uint64_t hal_tiempo_actual_ms(void){
+		return divide_by_16000(hal_tiempo_actual_tick());
+}
+
+
+/**
  * @brief Configure periodic timer
  * 
  * @param periodo_en_tick Period in ticks
@@ -200,20 +232,29 @@ void hal_tiempo_reloj_periodico_tick(uint32_t periodo_en_tick, void(*funcion_cal
 	if (periodo_en_tick != 0) {
 			// NOTE: using TIMER1, since the IRQ handler for TIMER0 is already busy handling
 			// the increment of "overflow_counter"
+			// NEW: stop and clear the timer before restarting
+			NRF_TIMER1->TASKS_STOP = 1;
+			NRF_TIMER1->TASKS_CLEAR = 1;
+		
 			NRF_TIMER1->BITMODE = TIMER_BITMODE_BITMODE_32Bit << TIMER_BITMODE_BITMODE_Pos;
 			NRF_TIMER1->PRESCALER = 0 << TIMER_PRESCALER_PRESCALER_Pos;
 			
 			NRF_TIMER1->CC[0]=periodo_en_tick;
 			NRF_TIMER1->INTENSET = TIMER_INTENSET_COMPARE0_Enabled << TIMER_INTENSET_COMPARE0_Pos;
 			NRF_TIMER1->SHORTS = TIMER_SHORTS_COMPARE0_CLEAR_Enabled << TIMER_SHORTS_COMPARE0_CLEAR_Pos;
-			
+				
+			// NEW: clear any pending events
+			NRF_TIMER1->EVENTS_COMPARE[0] = 0;
+		
 			NVIC_EnableIRQ(TIMER1_IRQn);
 			NRF_TIMER1->TASKS_START = 1;
 	} else {
 		// If "periodo_en_tick" is 0, stop TIMER1 and disable the IRQs for it
-		NVIC_DisableIRQ(TIMER1_IRQn);
 		NRF_TIMER1->TASKS_STOP = 1;
+		NVIC_DisableIRQ(TIMER1_IRQn);
 	}
 }
 
 #endif
+
+/** @} */ // End of HAL_NRF_TIMER group

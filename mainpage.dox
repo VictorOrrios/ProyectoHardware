@@ -1,0 +1,119 @@
+/**
+ * @mainpage Hardware Project 2024 - Microkernel Documentation
+ * 
+ * @section overview Overview
+ * Welcome to the documentation for the Hardware Project 2024 Microkernel. This real-time 
+ * microkernel is designed for embedded systems, providing a robust and flexible platform 
+ * for developing interactive applications.
+ * 
+ * @section key_features Key Features
+ * - **Hardware Abstraction Layer (HAL)**
+ *   - Support for LPC2105 (ARM7) and NRF52840 (Cortex-M4F)
+ *   - Platform-independent peripheral access
+ *   - Unified interrupt handling
+ * 
+ * - **Real-Time Event System**
+ *   - Event-driven architecture
+ *   - Priority-based scheduling
+ *   - Efficient message queuing
+ *   - Deterministic timing
+ * 
+ * - **Service Layer**
+ *   - Logging system with multiple severity levels
+ *   - Statistics collection and performance monitoring
+ *   - Alarm and timer management
+ *   - Power management services
+ * 
+ * @section architecture System Architecture
+ * The system is organized into several key layers:
+ * 
+ * @dotfile architecture.dot
+ * 
+ * @section getting_started Getting Started
+ * 
+ * To begin using the microkernel:
+ * 1. Choose your target platform (LPC2105 or NRF52840)
+ * 2. Configure the HAL for your platform
+ * 3. Initialize required services
+ * 4. Set up your application event handlers
+ * 
+ * Example initialization code:
+ * @code{.c}
+ * int main(void) {
+ *     uint32_t num_leds;
+ *     uint32_t num_botones;
+ * 
+ *     // Initialize Hardware Abstraction Layer
+ *     hal_gpio_iniciar();        // Must be first - other drivers depend on GPIO
+ *     hal_ext_int_iniciar();     // External interrupts for buttons
+ *     
+ *     // Initialize Basic Drivers
+ *     num_leds = drv_leds_iniciar();
+ *     drv_monitor_iniciar();
+ *     drv_tiempo_iniciar();
+ *     drv_consumo_iniciar(MONITOR4, MONITOR3);
+ *     
+ *     // Initialize Runtime System
+ *     rt_FIFO_inicializar(MONITOR4);
+ *     rt_GE_iniciar(MONITOR1);
+ *     
+ *     // Initialize Services
+ *     num_botones = drv_botones_iniciar(rt_FIFO_encolar,
+ *                                      ev_PULSAR_BOTON,
+ *                                      ev_RETARDO,
+ *                                      ev_DOBLE_BOTON_PULSADO,
+ *                                      DOUBLE_BUTTON_TIMEOUT_MS);
+ *     svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
+ *     svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
+ *     
+ *     // Launch application (if hardware available)
+ *     if (num_leds > 0 && num_botones > 0) {
+ *         // Your application code here
+ *     }
+ *     
+ *     // Enter event processing loop - never returns
+ *     rt_GE_lanzador();
+ *     
+ *     return 0;
+ * }
+ * @endcode
+ * 
+ * @section modules Core Modules
+ * - @ref HAL - Hardware Abstraction Layer
+ * - @ref DRV - Device Drivers
+ * - @ref SVC - Services
+ * - @ref RT - Real-Time Core
+ * 
+ * @section tools Development Tools
+ * - **IDE:** Keil µVision
+ * - **Compiler:** GCC
+ * - **Documentation:** Doxygen
+ * - **Version Control:** Git
+ * 
+ * @section authors Authors
+ * - Víctor Orrios Barón (NIP: 840994)
+ * - José Miguel Quílez Vergara (NIP: 873499)
+ * 
+ * @section license License
+ * This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 
+ * International License (CC BY-SA 4.0). To view a copy of this license, visit:
+ * https://creativecommons.org/licenses/by-sa/4.0/
+ * 
+ * You are free to:
+ * - Share: copy and redistribute the material in any medium or format
+ * - Adapt: remix, transform, and build upon the material for any purpose
+ * 
+ * Under the following terms:
+ * - Attribution: You must give appropriate credit to the authors
+ * - ShareAlike: If you remix or modify, you must distribute under the same license
+ * 
+ * @section contact Contact Information
+ * For questions about this project, please contact the authors:
+ * - Víctor Orrios Barón (840994@unizar.es)
+ * - José Miguel Quílez Vergara (873499@unizar.es)
+ * 
+ * Developed under the supervision of:
+ * - **Institution:** EINA - University of Zaragoza
+ * - **Department:** Electronic Engineering and Communications
+ * - **Course:** Hardware Project 2024
+ */ 

@@ -36,7 +36,6 @@
 #include "drv_rng.h"
 #include "rt_GE.h"
 #include "svc_alarma.h"
-#include "svc_wdt.h"
 #include "drv_wdt.h"
 #include "hal_ext_int.h"
 #include "svc_log.h"
@@ -153,7 +152,7 @@ int main(void)
 				drv_consumo_iniciar(MONITOR4, MONITOR3);
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0) blink_v3_bis(3);
@@ -169,7 +168,7 @@ int main(void)
 				drv_consumo_iniciar(MONITOR4, MONITOR3);
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0) test_fifo();   
@@ -190,7 +189,7 @@ int main(void)
 																					 ev_RETARDO, 
 																					 ev_DOBLE_BOTON_PULSADO, 
 																					 DOUBLE_BUTTON_TIMEOUT_MS);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0 && num_botones > 0) test_boton();   
@@ -205,7 +204,7 @@ int main(void)
 				drv_consumo_iniciar(MONITOR4, MONITOR3);
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0) test_wdt_overflow(1);
@@ -221,7 +220,7 @@ int main(void)
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
 				#ifndef LPC2105_simulador
-					svc_log_iniciar(MONITOR1); // On the LPC2105, it may overflow the fifo and crash the system
+					svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED); // On the LPC2105, it may overflow the fifo and crash the system
 				#endif
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
@@ -237,7 +236,7 @@ int main(void)
 				drv_consumo_iniciar(MONITOR4, MONITOR3);
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				test_logs();
@@ -252,7 +251,7 @@ int main(void)
 				drv_consumo_iniciar(MONITOR4, MONITOR3);
 				rt_FIFO_inicializar(MONITOR4);
 				rt_GE_iniciar(MONITOR1);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				test_random();
@@ -273,7 +272,7 @@ int main(void)
 																					 ev_RETARDO, 
 																					 ev_DOBLE_BOTON_PULSADO, 
 																					 DOUBLE_BUTTON_TIMEOUT_MS);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0 && num_botones > 0) bit_counterstrike_launcher(2000, num_leds, num_botones);   
@@ -294,7 +293,7 @@ int main(void)
 																					 ev_RETARDO, 
 																					 ev_DOBLE_BOTON_PULSADO, 
 																					 DOUBLE_BUTTON_TIMEOUT_MS);
-				svc_log_iniciar(MONITOR1);
+				svc_log_iniciar(MONITOR1, rt_FIFO_encolar, ev_UART_FREED);
 				svc_alarma_iniciar(MONITOR2, rt_FIFO_encolar, ev_T_PERIODICO);
 			
 				if(num_leds >0 && num_botones > 0) simon_launcher(num_leds, num_botones, 0);   

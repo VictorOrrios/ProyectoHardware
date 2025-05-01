@@ -1,24 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_gpio_lpc.c
+ * @ingroup HAL_LPC
+ * @brief GPIO HAL implementation for LPC2105
+ * @details Implementation of the GPIO Hardware Abstraction Layer for the LPC2105 
+ *          microcontroller. This module provides functions to configure and control
+ *          GPIO pins, supporting both individual pin and multi-pin operations.
+ *
+ * @defgroup HAL_LPC_GPIO GPIO
+ * @ingroup HAL_LPC
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_gpio_lpc.c - GPIO Hardware Abstraction Layer for LPC2105
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the GPIO Hardware Abstraction Layer for the LPC2105 
- *   microcontroller. This module provides functions to configure and control
- *   GPIO pins, supporting both individual pin and multi-pin operations.
- *   External interrupt handling for buttons is implemented in a separate module.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include <LPC210x.H>                       /* LPC210x definitions */
 
@@ -83,9 +81,9 @@ uint32_t hal_gpio_leer_n(HAL_GPIO_PIN_T gpio_inicial, uint8_t num_bits){
 /**
  * @brief Write value to multiple consecutive GPIO pins
  * 
- * @param bit_inicial First GPIO pin to write to
+ * @param bit_inicial First GPIO pin to write
  * @param num_bits Number of consecutive pins to write
- * @param valor Value to write (if value is larger than num_bits, only the least significant bits are used)
+ * @param valor Value to write to pins
  */
 void hal_gpio_escribir_n(HAL_GPIO_PIN_T bit_inicial, 
 			uint8_t num_bits, uint32_t valor){
@@ -127,7 +125,6 @@ uint32_t hal_gpio_leer(HAL_GPIO_PIN_T gpio){
 	return ((IOPIN & masc)!=0);
 }
 
-
 /**
  * @brief Write value to a single GPIO pin
  * 
@@ -140,3 +137,5 @@ void hal_gpio_escribir(HAL_GPIO_PIN_T gpio, uint32_t valor){
 	if ((valor & 0x01) == 0) IOCLR = masc;
 	else IOSET = masc;
 }
+
+/** @} */ // End of HAL_LPC_GPIO group

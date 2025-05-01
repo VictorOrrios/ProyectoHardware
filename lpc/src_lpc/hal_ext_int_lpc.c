@@ -1,32 +1,29 @@
-/* *****************************************************************************
+/**
+ * @file hal_ext_int_lpc.c
+ * @ingroup HAL_LPC
+ * @brief External Interrupts HAL implementation for LPC2105
+ * @details Implementation of the External Interrupts Hardware Abstraction Layer for
+ *          the LPC2105 microcontroller. This module manages external interrupt
+ *          configuration and handling, particularly for button inputs.
+ *
+ * @defgroup HAL_LPC_EXTINT External Interrupts
+ * @ingroup HAL_LPC
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_ext_int_lpc.c - External Interrupts HAL for LPC2105
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the External Interrupts Hardware Abstraction Layer for
- *   the LPC2105 microcontroller. This module manages external interrupt
- *   configuration and handling, particularly for button inputs.
- * *****************************************************************************/
- 
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
+
 #include <LPC210x.H> /* LPC210x definitions */
 #include "hal_ext_int.h"
-#include "board.h"
 
 static void (*ext_int_callback)(uint32_t pin) = 0;
 
 static uint8_t estados [3];
-
 
 /**
  * @brief Register a callback function for external interrupts
@@ -42,7 +39,6 @@ void hal_ext_int_registrar_callback(void (*callback)(uint32_t)) {
     ext_int_callback = callback;
 }
 
-
 /**
  * @brief Interrupt Service Routine for External Interrupt 0
  * 
@@ -54,7 +50,7 @@ void eint0_ISR (void) __irq {
 	EXTINT |= 0b1;
 	VICVectAddr = 0;
 	if(!estados[0]){
-		ext_int_callback(BUTTON_3);
+		ext_int_callback(16);
 	}
 	estados[0] = 1;
 	hal_ext_int_deshabilitar_int(16);
@@ -71,7 +67,7 @@ void eint1_ISR (void) __irq {
 	EXTINT |= 0b10;
 	VICVectAddr = 0;
 	if(!estados[1]){
-		ext_int_callback(BUTTON_1);
+		ext_int_callback(14);
 	}
 	estados[1] = 1;
 	hal_ext_int_deshabilitar_int(14);
@@ -88,13 +84,11 @@ void eint2_ISR (void) __irq {
 	EXTINT |= 0b100;
 	VICVectAddr = 0;
 	if(!estados[2]){
-		ext_int_callback(BUTTON_2);
+		ext_int_callback(15);
 	}
 	estados[2] = 1;
 	hal_ext_int_deshabilitar_int(15);
 }
-
-
 
 /**
  * @brief Initialize the external interrupt system
@@ -104,9 +98,7 @@ void eint2_ISR (void) __irq {
  */
 void hal_ext_int_iniciar(void){
 	
-	
-	uint32_t mask = (1 << BUTTONS_NUMBER) - 1; //  mask = 0b111
-	EXTINT |= mask;        // clear interrupt flag for all buttons     	
+	EXTINT |= 0b111;        // clear interrupt flag for all buttons     	
 	// configuration of the IRQ slot number 2, 3 & 4 of the VIC for EXTINT0,1 & 2
 	VICVectAddr3 = (unsigned long)eint0_ISR;          // set interrupt vector
 	VICVectAddr4 = (unsigned long)eint1_ISR;          // set interrupt vector
@@ -193,29 +185,29 @@ uint8_t hal_ext_int_get_estado_pin(uint32_t pin){
 		case 14:
 			EXTINT |= 0b10;
 			if(EXTINT & 0b10 && estados[1]){
-				return BUTTONS_ACTIVE_STATE;
+				return 0;
 			}else{
 				estados[1] = 0;
-				return !BUTTONS_ACTIVE_STATE;
+				return 1;
 			}
 		case 15: 
 			EXTINT |= 0b100;
 			if(EXTINT & 0b100 && estados[2]){
-				return BUTTONS_ACTIVE_STATE;
+				return 0;
 			}else{
 				estados[2] = 0;
-				return !BUTTONS_ACTIVE_STATE;
+				return 1;
 			}
 		case 16: 
 			EXTINT |= 0b1;
 			if(EXTINT & 0b1 && estados[0]){
-				return BUTTONS_ACTIVE_STATE;
+				return 0;
 			}else{
 				estados[0] = 0;
-				return !BUTTONS_ACTIVE_STATE;
+				return 1;
 			}
 	}
-	return !BUTTONS_ACTIVE_STATE;
+	return 1;
 }
 
 /**
@@ -243,7 +235,6 @@ void hal_ext_int_habilitar_despertar(uint32_t pin){
  * @param pin Pin number that will no longer be able to wake up the system
  */
 void hal_ext_int_deshabilitar_despertar(uint32_t pin){
-	EXTWAKE &= ~0b111;
 	switch(pin){
 		case 14: 
 			EXTWAKE &= ~0b010;
@@ -256,3 +247,5 @@ void hal_ext_int_deshabilitar_despertar(uint32_t pin){
 		break;
 	}
 }
+
+/** @} */ // End of HAL_LPC_EXTINT group

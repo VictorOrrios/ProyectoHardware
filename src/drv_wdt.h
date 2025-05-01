@@ -1,22 +1,21 @@
-/* *****************************************************************************
+/**
+ * @file drv_wdt.h
+ * @ingroup DRV
+ * @brief Watchdog Timer Driver Interface
+ * @details Interface for the Watchdog Timer driver module. Provides functions
+ *          to manage system watchdog with debug monitoring capabilities.
+ *
+ * @defgroup DRV_WDT Watchdog Timer Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_wdt.h - Watchdog Timer Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Watchdog Timer driver module. Provides functions
- *   to manage system watchdog with debug monitoring capabilities.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_WDT
 #define DRV_WDT
@@ -47,5 +46,7 @@ void drv_wdt_feed(void);
  * @param callback Function to call when watchdog triggers
  */
 void drv_wdt_registrar_callback(void (*callback)(void));
+
+/** @} */ // End of DRV_WDT group
 
 #endif

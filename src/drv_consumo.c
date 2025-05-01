@@ -1,23 +1,16 @@
-/* *****************************************************************************
+/**
+ * @file drv_consumo.c
+ * @ingroup DRV_POWER
+ * @brief Power Management Driver Implementation
+ * @details Implementation of power mode transitions and monitor signal management.
+ *
  * Hardware Project 2024
- * 
- * drv_consumo.c - Power Management Driver
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the power management driver. This module manages different
- *   power consumption modes of the microcontroller and monitors state changes
- *   using monitor signals.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
   
 #include "drv_consumo.h"
 #include "drv_monitor.h"

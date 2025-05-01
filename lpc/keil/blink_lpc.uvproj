@@ -552,16 +552,6 @@
               <FilePath>..\..\src\hal_wdt.h</FilePath>
             </File>
             <File>
-              <FileName>svc_wdt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\src\svc_wdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>svc_wdt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\src\svc_wdt.h</FilePath>
-            </File>
-            <File>
               <FileName>drv_rng.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\src\drv_rng.c</FilePath>
@@ -1291,16 +1281,6 @@
               <FilePath>..\..\src\hal_wdt.h</FilePath>
             </File>
             <File>
-              <FileName>svc_wdt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\src\svc_wdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>svc_wdt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\src\svc_wdt.h</FilePath>
-            </File>
-            <File>
               <FileName>drv_rng.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\src\drv_rng.c</FilePath>
@@ -1611,7 +1591,7 @@
             <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
             <RestoreFunctions>1</RestoreFunctions>
             <RestoreToolbox>1</RestoreToolbox>
-            <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
+            <LimitSpeedToRealTime>1</LimitSpeedToRealTime>
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
@@ -1627,13 +1607,13 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>17</TargetSelection>
+          <TargetSelection>0</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile></InitializationFile>
+            <InitializationFile>..\src_lpc\button_toolbox_lpc.ini</InitializationFile>
           </SimDlls>
           <TargetDlls>
             <CpuDll></CpuDll>
@@ -1829,7 +1809,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -1853,7 +1833,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DEBUG LPC2105_simulador</Define>
+              <Define>DEBUG WITH_DEBUG_LOGS DEBUG_STATS LPC2105_simulador</Define>
               <Undefine></Undefine>
               <IncludePath>../../src;../src_lpc</IncludePath>
             </VariousControls>
@@ -2028,16 +2008,6 @@
               <FileName>hal_wdt.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\src\hal_wdt.h</FilePath>
-            </File>
-            <File>
-              <FileName>svc_wdt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\src\svc_wdt.c</FilePath>
-            </File>
-            <File>
-              <FileName>svc_wdt.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\src\svc_wdt.h</FilePath>
             </File>
             <File>
               <FileName>drv_rng.c</FileName>

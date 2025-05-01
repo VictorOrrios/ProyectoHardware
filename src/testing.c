@@ -1,23 +1,23 @@
-/* *****************************************************************************
+/**
+ * @file testing.c
+ * @ingroup TESTING
+ * @brief Test Suite Implementation
+ * @details Implementation of the test suite module. Contains test functions for
+ *          various system components including:
+ *          - Watchdog overflow testing
+ *          - Random number generation
+ *          - FIFO queue operations
+ *          - Button interrupt handling
+ *          - UART communication
+ *          - Critical section nesting
+ *
  * Hardware Project 2024
- *
- * testing.h - Test Suite Interface
- *
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- *
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
  *
- * Date: 02/12/2024
- *
- * Description:
- *   Interface for the test suite module. Provides functions to test different
- *   components of the system including watchdog, random number generation,
- *   FIFO queues, buttons, UART, and critical sections.
- * *****************************************************************************/
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 /******************************************************************************
  * Includes
@@ -28,8 +28,7 @@
 #include "rt_GE.h"
 #include "drv_leds.h"
 #include "drv_tiempo.h"
-#include "svc_wdt.h"
-#include "hal_wdt.h"
+#include "drv_wdt.h"
 #include "rt_evento_t.h"
 #include "rt_FIFO.h"
 #include "svc_log.h"
@@ -44,17 +43,6 @@
 /******************************************************************************
  * Watchdog Test Functions
  *****************************************************************************/
-
-/**
- * @brief Notify watchdog that task is alive
- *
- * @param evento Event type
- * @param wdt_handle_id Watchdog handle for the task
- */
-void notify_task_alive_test_wdt(uint32_t evento, uint32_t wdt_handle_id)
-{
-    svc_wdt_tarea_viva(wdt_handle_id);
-}
 
 // Function to subscribe multiple times
 void dummy_wdt_handler(uint32_t evento, uint32_t auxdata)
@@ -72,24 +60,19 @@ void dummy_wdt_handler(uint32_t evento, uint32_t auxdata)
  */
 void test_wdt_overflow(uint32_t id_led)
 {
+		uint8_t rt_ge_max_suscritos = 4;
+	
     // Initialize watchdog service with 5 second timeout
-    svc_wdt_iniciar(WDT_TEST_TIMEOUT_MS, MONITOR3);
-
-    // Register this task with watchdog
-    int32_t wdt_handle = svc_wdt_registrar_tarea(1);
+    drv_wdt_iniciar(WDT_TEST_TIMEOUT_MS, MONITOR3);
 
     drv_led_encender(id_led);
 
     // Try to subscribe more than rt_GE_MAX_SUSCRITOS times
-    for (int i = 0; i < rt_GE_MAX_SUSCRITOS + 1; i++)
+    for (int i = 0; i < rt_ge_max_suscritos + 1; i++)
     {                                                         // rt_GE_MAX_SUSCRITOS is 4
         svc_GE_suscribir(ev_PULSAR_BOTON, dummy_wdt_handler); // This will halt on 5th subscription
     }
 
-    // Code below won't execute because rt_GE will halt
-    // Watchdog will then trigger system reset
-    svc_GE_suscribir(ev_FEED_WDT, notify_task_alive_test_wdt);
-    svc_alarma_activar(svc_alarma_codificar(1, WDT_TEST_TIMEOUT_MS / 2), ev_FEED_WDT, wdt_handle);
 }
 
 /******************************************************************************
@@ -144,12 +127,13 @@ void test_fifo(void)
     EVENTO_T EV_ID_evento;
     uint32_t EV_auxData;
     Tiempo_us_t EV_TS;
+		uint8_t event_queue_size = 64;
 
     rt_FIFO_inicializar(MONITOR4);
     drv_tiempo_periodico_ms(500, rt_FIFO_encolar, ev_T_PERIODICO);
 
     // Test normal operation
-    for (int j = 0; j <= EVENT_QUEUE_SIZE; j++)
+    for (int j = 0; j <= event_queue_size; j++)
     {
         for (int i = 0; i < j; i++)
         {
@@ -178,7 +162,7 @@ void test_fifo(void)
 
     // Test overflow
     drv_led_encender(3);
-    for (int i = 0; i < EVENT_QUEUE_SIZE + 1; i++)
+    for (int i = 0; i < event_queue_size + 1; i++)
     {
         rt_FIFO_encolar(0, i);
     }

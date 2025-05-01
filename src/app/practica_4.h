@@ -1,23 +1,21 @@
-/* *****************************************************************************
- * Hardware Project 2024
- * 
- * practica_4.h - Advanced LED Control Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
- * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for Practice 4 module. Provides functions for advanced LED
- *   control patterns including limited blink sequences and interactive
- *   LED patterns using buttons.
- * *****************************************************************************/
+/**
+ * @file practica_4.h
+ * @ingroup APP
+ * @brief Advanced LED Control Interface
+ * @details Interface for Practice 4 module. Provides functions for advanced LED
+ *          control patterns including limited blink sequences and interactive
+ *          LED patterns using buttons.
+ *
+ * @defgroup APP_ADVANCED Advanced LED Control
+ * @ingroup APP
+ * @details This module implements advanced LED control features:
+ *          - Limited blink sequences
+ *          - Interactive LED patterns
+ *          - Button input processing
+ *          - Watchdog timer integration
+ *          - Deep sleep mode utilization
+ * @{
+ */
 
 #ifndef PRACTICA_4
 #define PRACTICA_4
@@ -44,5 +42,7 @@ void blink_v3_bis(uint32_t id);
  * @param num_botones Number of buttons available
  */
 void bit_counterstrike_launcher(uint32_t retardoSpawnInicial, uint32_t num_leds, uint32_t num_botones);
+
+/** @} */ // End of DRV_BUTTONS group
 
 #endif // PRACTICA_4

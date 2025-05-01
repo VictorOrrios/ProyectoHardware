@@ -1,29 +1,29 @@
-/* *****************************************************************************
+/**
+ * @file practica_5.c
+ * @ingroup APP_SIMON
+ * @brief Simon Says Game Implementation
+ * 
+ * @details Implements a complete memory game with multiple features:
+ * - Multiple difficulty levels with dynamic speed adjustment
+ * - Sequence generation and validation
+ * - Visual feedback through LED patterns
+ * - Performance statistics collection
+ * - System health monitoring
+ * 
+ * Key Components:
+ * - State machine for game flow control
+ * - Event-based input processing
+ * - Watchdog timer integration
+ * - Performance monitoring and statistics
+ * - Power-efficient operation
+ * 
  * Hardware Project 2024
- *
- * practica_5_simon.c - Simon Says Game Implementation
- *
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- *
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- *
- * Date: 02/12/2024
- *
- * Description:
- *   Implementation of the Simon Says game module. Provides a complete memory
- *   game implementation with multiple difficulty levels, watchdog protection,
- *   and visual feedback through LEDs.
- *
- * Implementation Notes:
- *   - Uses watchdog timer for system health monitoring
- *   - Supports three difficulty levels
- *   - Implements game reset through double button press
- *   - Uses event-based architecture for game state management
- * *****************************************************************************/
+ * 
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 02/12/2024
+ */
 
 #include "practica_5.h"
 #include "drv_leds.h"
@@ -117,7 +117,6 @@ static uint8_t play_b_sd;	  // Last button pressed
 /******************************************************************************
  * Forwarded function declarations
  *****************************************************************************/
-static void feedWDT_sd(uint32_t evento, uint32_t handler);
 static void simon_animacion_handler(uint32_t evento, uint32_t aux);
 static void simonSeleccionarDificultad(uint32_t evento, uint32_t botonPulsado);
 static void reset_simon(uint32_t evento, uint32_t aux);
@@ -186,7 +185,8 @@ void rellenarLista_sd()
  */
 void wdt_callback_sd(void)
 {
-	LOG_DEBUG("Watchdog about to bite real hard...");
+	LOG_ERROR("Watchdog about to bite real hard...");
+
 	svc_log_procesar();
 }
 
@@ -252,6 +252,9 @@ void simon_animacion_handler(uint32_t evento, uint32_t aux)
  */
 void simonSeleccionarDificultad(uint32_t evento, uint32_t botonPulsado)
 {
+	// [NEW] Save button IRQ handling response time
+	svc_stats_interrupt_end();
+	
 	game_difficulty_sd = botonPulsado <= 3 ? botonPulsado : 1;
 
 	switch (botonPulsado)
@@ -301,22 +304,6 @@ static void simonPulsarBoton(uint32_t evento, uint32_t botonPulsado)
 	play_b_sd = botonPulsado;
 	svc_GE_cancelar(ev_PULSAR_BOTON, simonPulsarBoton);
 	rt_FIFO_encolar(ev_SIMON_GENERICO, play_boton);
-}
-
-/**
- * @brief Feed watchdog timer periodically
- *
- * Prevents system reset by feeding watchdog timer at regular intervals.
- * Logs each feed operation for debugging.
- *
- * @param evento Event type (always ev_FEED_WDT)
- * @param handler_id Watchdog handler ID to feed
- */
-void feedWDT_sd(uint32_t evento, uint32_t handler_id)
-{
-	LOG_DEBUG("Feeding watchdog");
-	svc_log_procesar();
-	drv_wdt_feed();
 }
 
 /**
@@ -491,12 +478,12 @@ void simonMaquinaEstados(uint32_t evento, uint32_t estado)
 		}
 		else
 		{
-			LOG_INFO_F("Game Over! Score: %u sequences", cpu_tamg_sd - 1);
 			game_over_flash_count++;
 			current_led = 1;
 			if (game_over_flash_count >= 3)
 			{
 				// 3 whole sequences completed
+				LOG_INFO_F("Game Over! Score: %u sequences", cpu_tamg_sd - 1);
 
 				// Count as game over event
 				svc_stats_game_over(cpu_tamg_sd - 1);
@@ -535,13 +522,11 @@ void simonMaquinaEstados(uint32_t evento, uint32_t estado)
  */
 void simon_launcher(uint32_t num_leds, uint32_t num_botones, uint32_t is_reset)
 {
-	LOG_INFO_F("Simon Says starting with %lu LEDs and %lu buttons", num_leds, num_botones);	
+	LOG_INFO_F("Simon Says starting with %lu LEDs and %lu buttons", num_leds, num_botones);
 
 	if (!is_reset)
 	{
-		
 		svc_stats_iniciar();
-		
 
 		// Subscribe to dump all stats event with the corresponding handler
 		svc_GE_suscribir(ev_DUMP_ALL_STATS, dump_all_stats_handler);
@@ -549,8 +534,6 @@ void simon_launcher(uint32_t num_leds, uint32_t num_botones, uint32_t is_reset)
 		drv_wdt_iniciar(DRV_WDT_TIMEOUT_MS_SD, MONITOR3);
 		drv_wdt_registrar_callback(wdt_callback_sd);
 
-		svc_GE_suscribir(ev_FEED_WDT, feedWDT_sd);
-		svc_alarma_activar(svc_alarma_codificar(1, WDT_FEED_INTERVAL_MS_SD), ev_FEED_WDT, 0);
 		LOG_DEBUG("Watchdog initialized");
 	}
 

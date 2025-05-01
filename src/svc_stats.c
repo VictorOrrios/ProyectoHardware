@@ -1,59 +1,119 @@
-/* *****************************************************************************
+/**
+ * @file svc_stats.c
+ * @ingroup SVC_STATS
+ * @brief Statistics Service Implementation
+ * @details Implementation of the statistics service module. Collects and processes
+ *          various system metrics for performance analysis and debugging.
+ *
  * Hardware Project 2024
- *
- * svc_stats.c - Statistics Service Implementation
- *
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- *
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
  *
- * Date: 02/12/2024
- *
- * Description:
- *   Implementation of the statistics service module. Collects and processes
- *   various system metrics for performance analysis and debugging.
- *
- * Implementation Notes:
- *   - Uses circular buffers for efficient timing measurements
- *   - Maintains running averages to avoid overflow
- *   - Thread-safe queue operations for interrupt handling
- *   - Automatic bounds checking on all array operations
- *   - Warning messages for out-of-bounds conditions
- *
- * Key Features:
- *   - Game statistics tracking (sequences, difficulty levels)
- *   - Response time measurements (user, interrupt)
- *   - Power management statistics
- *   - FIFO queue performance metrics
- *
- * Dependencies:
- *   - svc_stats.h: Module interface
- *   - svc_log.h: Logging functionality
- *   - drv_tiempo.h: Time measurement
- *
- * Memory Usage:
- *   - Fixed-size timing queues (TIMING_QUEUE_SIZE elements each)
- *   - Histograms for game metrics (sequence length, difficulty)
- *   - Static allocation for all data structures
- *
- * Error Handling:
- *   - Queue overflow/underflow detection
- *   - Bounds checking on all array accesses
- *   - Warning messages for invalid inputs
- * *****************************************************************************/
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "svc_stats.h"
 #include "svc_log.h"
 #include "drv_tiempo.h"
 #include "rt_fifo.h"
+#include "rt_evento_t.h"
 #include "drv_sc.h"
 #include <string.h> // For memset
+#include <stdint.h>
 
 #ifdef DEBUG_STATS
+
+/******************************************************************************
+ * Data Structures
+ *****************************************************************************/
+
+/* FIFO Statistics */
+typedef struct {
+    uint32_t total_events;
+    uint32_t events_by_type[EVENT_TYPES];
+    uint32_t unhandled_events;
+    uint32_t events_by_type_unhandled[EVENT_TYPES];  // Events that timed out
+} fifo_stats_t;
+
+/* Queue Configuration */
+#define TIMING_QUEUE_SIZE 64  // Should be a power of 2
+
+/* Generic Timing Queue */
+typedef struct {
+    Tiempo_us_t start_times[TIMING_QUEUE_SIZE];
+    uint32_t head;
+    uint32_t tail;
+    uint32_t count;
+} timing_queue_t;
+
+/* Response Time Statistics */
+typedef struct {
+    // Interrupt timing
+    timing_queue_t interrupt_queue;
+    Tiempo_us_t interrupt_total_time;
+    Tiempo_us_t interrupt_max_time;
+    Tiempo_us_t interrupt_min_time;
+    Tiempo_us_t interrupt_avg_time;
+    uint32_t interrupt_count;
+
+    // Wait mode timing
+    timing_queue_t wait_queue;
+    Tiempo_us_t wait_total_time;
+    Tiempo_us_t wait_max_time;
+    Tiempo_us_t wait_min_time;
+    Tiempo_us_t wait_avg_time;
+    uint32_t wait_cycles;
+
+    // Sleep mode timing
+    timing_queue_t sleep_queue;
+    Tiempo_us_t sleep_total_time;
+    Tiempo_us_t sleep_max_time;
+    Tiempo_us_t sleep_min_time;
+    Tiempo_us_t sleep_avg_time;
+    uint32_t sleep_cycles;
+
+    // User response timing
+    timing_queue_t user_queue;
+    Tiempo_us_t user_total_time;
+    Tiempo_us_t user_max_time;
+    Tiempo_us_t user_min_time;
+    Tiempo_us_t user_avg_time;
+    uint32_t user_response_count;
+
+    // FIFO timing
+    timing_queue_t fifo_queue;
+    Tiempo_us_t fifo_total_time;
+    Tiempo_us_t fifo_max_time;
+    Tiempo_us_t fifo_min_time;
+    Tiempo_us_t fifo_avg_time;
+} timing_stats_t;
+
+/* Power Statistics */
+typedef struct {
+    Tiempo_us_t total_active_time;
+    Tiempo_us_t total_sleep_time;
+    uint32_t sleep_cycles;
+    uint32_t wakeups;
+} power_stats_t;
+
+/* Game Statistics Configuration */
+#define MAX_SEQUENCE_LENGTH 32
+#define MAX_DIFFICULTY_LEVEL 3
+
+/* Game Statistics */
+typedef struct {
+    uint32_t total_games;
+    uint32_t max_sequence;
+    uint32_t min_sequence;
+    uint32_t sequences_histogram[MAX_SEQUENCE_LENGTH];  // Count of sequences by length (0 to 31)
+    float avg_sequence;
+    uint32_t difficulty_histogram[MAX_DIFFICULTY_LEVEL];  // Count of games by difficulty (1 to 3)
+    Tiempo_us_t current_game_start;    // Start time of current game
+    Tiempo_us_t max_game_duration;     // Longest game duration
+    Tiempo_us_t min_game_duration;     // Shortest game duration
+    Tiempo_us_t avg_game_duration;     // Average game duration
+} game_stats_t;
 
 /******************************************************************************
  * Private Helper Functions
@@ -63,14 +123,15 @@
  * @brief Push a timestamp into a timing queue
  * @param time Timestamp to store
  * @param queue Pointer to the queue structure
- * @note Logs error and discards value on queue overflow
+ * @note [DEPRECATED] Logs error and discards value on queue overflow
  */
 static void queue_push(Tiempo_us_t time, timing_queue_t *queue)
 {
     if (queue->count >= TIMING_QUEUE_SIZE)
     {
-        LOG_ERROR("Timing queue overflow!");
-        svc_log_procesar();
+        // CRITICAL: causes race condition & prefetch abort in the log service
+        /*LOG_INFO("Timing queue overflow!");
+        svc_log_procesar();*/
         return;
     }
     queue->start_times[queue->head] = time;
@@ -82,14 +143,15 @@ static void queue_push(Tiempo_us_t time, timing_queue_t *queue)
  * @brief Pop a timestamp from a timing queue
  * @param queue Pointer to the queue structure
  * @return The timestamp, or 0 if queue is empty
- * @note Logs error on queue underflow
+ * @note [DEPRECATED] Logs error and discards value on queue overflow
  */
 static Tiempo_us_t queue_pop(timing_queue_t *queue)
 {
     if (queue->count == 0)
     {
-        LOG_ERROR("Timing queue underflow!");
-        svc_log_procesar();
+        // CRITICAL: causes race condition & prefetch abort in the log service
+        /*LOG_INFO("Timing queue underflow!");
+        svc_log_procesar();*/
         return 0;
     }
     Tiempo_us_t time = queue->start_times[queue->tail];
@@ -118,14 +180,14 @@ void svc_stats_iniciar(void)
     memset(&power_stats, 0, sizeof(power_stats));
     memset(&game_stats, 0, sizeof(game_stats));
 
-    // Initialize min values
-    timing_stats.interrupt_min_time = 0xFFFFFFFF;
-    timing_stats.wait_min_time = 0xFFFFFFFF;
-    timing_stats.sleep_min_time = 0xFFFFFFFF;
-    timing_stats.user_min_time = 0xFFFFFFFF;
-    timing_stats.fifo_min_time = 0xFFFFFFFF;
-    game_stats.min_sequence = 0xFFFFFFFF;
-    game_stats.min_game_duration = 0xFFFFFFFF;
+    // Initialize min values using UINT32_MAX
+    timing_stats.interrupt_min_time = UINT32_MAX;
+    timing_stats.wait_min_time = UINT32_MAX;
+    timing_stats.sleep_min_time = UINT32_MAX;
+    timing_stats.user_min_time = UINT32_MAX;
+    timing_stats.fifo_min_time = UINT32_MAX;
+    game_stats.min_sequence = UINT32_MAX;
+    game_stats.min_game_duration = UINT32_MAX;
 }
 
 /******************************************************************************
@@ -419,7 +481,7 @@ void svc_stats_dump_fifo(uint8_t process_them)
 
     // Timing statistics
     LOG_INFO_F("Max wait time: %u us", timing_stats.fifo_max_time);
-    LOG_INFO_F("Min wait time: %u us", timing_stats.fifo_min_time);
+    LOG_INFO_F("Min wait time: %u us", timing_stats.fifo_min_time == UINT32_MAX ? 0 : timing_stats.fifo_min_time);
     LOG_INFO_F("Avg wait time: %u us", timing_stats.fifo_avg_time);
 
     // Get event distribution from FIFO module
@@ -438,8 +500,8 @@ void svc_stats_dump_fifo(uint8_t process_them)
 
     if (process_them)
     {
-        svc_log_procesar();
         drv_sc_salir();
+        svc_log_procesar();
     }
 }
 
@@ -451,7 +513,6 @@ void svc_stats_dump_timing(uint8_t process_them)
 {
     if (process_them)
         drv_sc_entrar();
-
 		
     LOG_INFO("=== Timing Statistics ===");
 
@@ -459,35 +520,34 @@ void svc_stats_dump_timing(uint8_t process_them)
     LOG_INFO_F("- Count: %u", timing_stats.interrupt_count);
     LOG_INFO_F("- Total: %u us", timing_stats.interrupt_total_time);
     LOG_INFO_F("- Maximum: %u us", timing_stats.interrupt_max_time);
-    LOG_INFO_F("- Minimum: %u us", timing_stats.interrupt_min_time);
+    LOG_INFO_F("- Minimum: %u us", timing_stats.interrupt_min_time == UINT32_MAX ? 0 : timing_stats.interrupt_min_time);
     LOG_INFO_F("- Average: %u us", timing_stats.interrupt_avg_time);
 
     LOG_INFO("User Response Times:");
     LOG_INFO_F("- Count: %u", timing_stats.user_response_count);
     LOG_INFO_F("- Total: %u us", timing_stats.user_total_time);
     LOG_INFO_F("- Maximum: %u us", timing_stats.user_max_time);
-    LOG_INFO_F("- Minimum: %u us", timing_stats.user_min_time);
+    LOG_INFO_F("- Minimum: %u us", timing_stats.user_min_time == UINT32_MAX ? 0 : timing_stats.user_min_time);
     LOG_INFO_F("- Average: %u us", timing_stats.user_avg_time);
 
     LOG_INFO("Wait Mode Times:");
     LOG_INFO_F("- Cycles: %u", timing_stats.wait_cycles);
     LOG_INFO_F("- Total: %u us", timing_stats.wait_total_time);
     LOG_INFO_F("- Maximum: %u us", timing_stats.wait_max_time);
-    LOG_INFO_F("- Minimum: %u us", timing_stats.wait_min_time);
+    LOG_INFO_F("- Minimum: %u us", timing_stats.wait_min_time == UINT32_MAX ? 0 : timing_stats.wait_min_time);
     LOG_INFO_F("- Average: %u us", timing_stats.wait_avg_time);
 
     LOG_INFO("Sleep Mode Times:");
     LOG_INFO_F("- Cycles: %u", timing_stats.sleep_cycles);
     LOG_INFO_F("- Total: %u us", timing_stats.sleep_total_time);
     LOG_INFO_F("- Maximum: %u us", timing_stats.sleep_max_time);
-    LOG_INFO_F("- Minimum: %u us", timing_stats.sleep_min_time);
+    LOG_INFO_F("- Minimum: %u us", timing_stats.sleep_min_time == UINT32_MAX ? 0 : timing_stats.sleep_min_time);
     LOG_INFO_F("- Average: %u us", timing_stats.sleep_avg_time);
-
 
     if (process_them)
     {
-        svc_log_procesar();
         drv_sc_salir();
+        svc_log_procesar();
     }
 }
 
@@ -508,8 +568,8 @@ void svc_stats_dump_power(uint8_t process_them)
 
     if (process_them)
     {
-        svc_log_procesar();
         drv_sc_salir();
+        svc_log_procesar();
     }
 }
 
@@ -525,10 +585,10 @@ void svc_stats_dump_game(uint8_t process_them)
     LOG_INFO("=== Game Statistics ===");
     LOG_INFO_F("Total games: %u", game_stats.total_games);
     LOG_INFO_F("Best sequence: %u", game_stats.max_sequence);
-    LOG_INFO_F("Worst sequence: %u", game_stats.min_sequence);
+    LOG_INFO_F("Worst sequence: %u", game_stats.min_sequence == UINT32_MAX ? 0 : game_stats.min_sequence);
     LOG_INFO_F("Average sequence: %.2f", game_stats.avg_sequence);
     LOG_INFO_F("Longest game: %u us", game_stats.max_game_duration);
-    LOG_INFO_F("Shortest game: %u us", game_stats.min_game_duration);
+    LOG_INFO_F("Shortest game: %u us", game_stats.min_game_duration == UINT32_MAX ? 0 : game_stats.min_game_duration);
     LOG_INFO_F("Average duration: %u us", game_stats.avg_game_duration);
 
     LOG_INFO("Sequence length distribution:");
@@ -548,8 +608,8 @@ void svc_stats_dump_game(uint8_t process_them)
 
     if (process_them)
     {
-        svc_log_procesar();
         drv_sc_salir();
+        svc_log_procesar();
     }
 }
 
@@ -561,20 +621,18 @@ void svc_stats_dump_all(uint8_t process_them)
 {
     if (process_them)
         drv_sc_entrar();
-
 		
     LOG_INFO("=== STATISTICS SUMMARY ===\n");
-    svc_stats_dump_fifo(0);
-    svc_stats_dump_timing(0);
-    svc_stats_dump_power(0);
-    svc_stats_dump_game(0);
+    svc_stats_dump_fifo(process_them);
+    svc_stats_dump_timing(process_them);
+    svc_stats_dump_power(process_them);
+    svc_stats_dump_game(process_them);
     LOG_INFO("=== END OF STATISTICS SUMMARY ===\n");
-		
 
     if (process_them)
     {
-        svc_log_procesar();
         drv_sc_salir();
+        svc_log_procesar();
     }
 }
 

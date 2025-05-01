@@ -1,22 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file drv_rng.h
+ * @ingroup DRV
+ * @brief Random Number Generator Driver Interface
+ * @details Interface for the Random Number Generator driver module. Provides
+ *          functions to generate random numbers and sequences with uniform
+ *          distribution.
+ *
+ * @defgroup DRV_RNG Random Number Generator Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_rng.h - Random Number Generator Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Random Number Generator driver module. Provides functions
- *   to generate random numbers and sequences with uniform distribution.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_RNG
 #define DRV_RNG
@@ -61,5 +61,7 @@ uint8_t drv_rng_get_bytes(uint8_t* buffer, uint32_t length);
  * @brief Stop the Random Number Generator
  */
 void drv_rng_stop(void);
+
+/** @} */ // End of DRV_RNG group
 
 #endif // DRV_RNG

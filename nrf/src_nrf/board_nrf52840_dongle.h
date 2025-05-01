@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file board_nrf52840_dongle.h
+ * @ingroup HAL_NRF
+ * @brief Pin Definitions for nRF52840 Dongle
+ * @details Pin definitions and configurations for the nRF52840 Dongle (PCA10059).
+ *          This file defines GPIO mappings for RGB LEDs and buttons, considering
+ *          each LED color as a separate LED.
+ *
+ * @defgroup HAL_NRF_BOARD_DONGLE Board Support - nRF52840 Dongle
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * board_nrf52840_dongle.h - Pin Definitions for nRF52840 Dongle
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Pin definitions and configurations for the nRF52840 Dongle (PCA10059).
- *   This file defines GPIO mappings for RGB LEDs and buttons, considering
- *   each LED color as a separate LED.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef BOARD_NRF
 #define BOARD_NRF
@@ -60,3 +59,5 @@
 #endif //botonos
 
 #endif
+
+/** @} */ // End of HAL_NRF_BOARD_DONGLE group

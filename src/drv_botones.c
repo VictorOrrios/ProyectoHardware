@@ -1,23 +1,16 @@
-/* *****************************************************************************
+/**
+ * @file drv_botones.c
+ * @ingroup DRV_BUTTONS
+ * @brief Button Driver Implementation
+ * @details Implementation of button state management, debouncing logic, and event handling.
+ *
  * Hardware Project 2024
- *
- * drv_botones.c - Button Driver Implementation
- *
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- *
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
  *
- * Date: 02/12/2024
- *
- * Description:
- *   Implementation of the button driver module. Provides hardware-independent
- *   button initialization and state querying services. Handles button debouncing,
- *   state management, and event generation for single and double presses.
- * *****************************************************************************/
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "drv_botones.h"
 #include "hal_gpio.h"
@@ -198,7 +191,6 @@ static void drv_botones_int_handler(uint32_t pin)
         if (!alarma_activa)
         {
             callback_pulsacion_encolar(ev_ENABLE_BUTTON_REBOUNCE_ALARM, indice);
-            // svc_alarma_activar(GCD_TIMING, evento_retardo, indice); // auxData not needed
             alarma_activa = 1;
         }
 
@@ -261,10 +253,9 @@ static void procesar_estado_boton(void)
                 }
                 else
                 {
-                    // Anomaly (the button was released just after the rebounce timeout expired)
-                    estado_botones[id_boton] = BOTON_IDLE;
-                    tiempo_ultima_pulsacion[id_boton] = -1;
-                    hal_ext_int_habilitar_int(pin);
+                    estado_botones[id_boton] = BOTON_REBOTE_LIBERACION;
+										tiempo_ultima_pulsacion[id_boton] = tiempo_actual;
+										hay_botones_activos = 1;
                 }
             }
             else

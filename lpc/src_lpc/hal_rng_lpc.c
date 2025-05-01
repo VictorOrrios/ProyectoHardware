@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_rng_lpc.c
+ * @ingroup HAL_LPC
+ * @brief Random Number Generator HAL implementation for LPC2105
+ * @details Implementation of the Random Number Generator Hardware Abstraction Layer
+ *          for the LPC2105 microcontroller. This module provides basic random number
+ *          generation functionality using the standard C library's rand() function.
+ *
+ * @defgroup HAL_LPC_RNG Random Number Generator
+ * @ingroup HAL_LPC
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_rng_lpc.c - Random Number Generator HAL for LPC2105
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Random Number Generator Hardware Abstraction Layer
- *   for the LPC2105 microcontroller. This module provides basic random number
- *   generation functionality using the standard C library's rand() function.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_rng.h"
 #include <LPC210x.H>
@@ -49,3 +48,5 @@ uint8_t hal_rng_get_byte(uint8_t* byte) {
  * Empty implementation as stdlib's rand() doesn't need cleanup
  */
 void hal_rng_stop(void) {}
+
+/** @} */ // End of HAL_LPC_RNG group

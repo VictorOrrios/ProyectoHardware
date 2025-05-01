@@ -1,402 +1,0 @@
-Dependencies for Project 'blink_nrf', Target 'nRF': (DO NOT MODIFY !)
-F (..\..\src\main.c)(0x6750D1E5)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_leds.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\drv_consumo.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\drv_botones.h)(0x6750C388)
-I (..\..\src\rt_fifo.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\drv_rng.h)(0x6750C388)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (..\..\src\svc_wdt.h)(0x6750C388)
-I (..\..\src\drv_wdt.h)(0x6750C388)
-I (..\..\src\hal_ext_int.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (..\..\src\testing.h)(0x6750C388)
-I (..\..\src\app/practica_2.h)(0x6750C388)
-I (..\..\src\app/practica_3.h)(0x6750C388)
-I (..\..\src\app/practica_4.h)(0x6750C389)
-I (..\..\src\app/practica_5.h)(0x6750C389)
-F (..\..\src\drv_leds.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_leds.o --omf_browse .\objects\drv_leds.crf --depend .\objects\drv_leds.d)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_leds.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\drv_leds.h)(0x6750C388)()
-F (..\..\src\drv_tiempo.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_tiempo.o --omf_browse .\objects\drv_tiempo.crf --depend .\objects\drv_tiempo.d)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_tiempo.h)(0x6750C388)
-F (..\..\src\drv_tiempo.h)(0x6750C388)()
-F (..\..\src\hal_gpio.h)(0x6750C388)()
-F (..\..\src\hal_tiempo.h)(0x6750C388)()
-F (..\..\src\board.h)(0x6750C388)()
-F (..\..\src\drv_consumo.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_consumo.o --omf_browse .\objects\drv_consumo.crf --depend .\objects\drv_consumo.d)
-I (..\..\src\drv_consumo.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\hal_consumo.h)(0x6750C388)
-I (..\..\src\svc_stats.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-F (..\..\src\hal_consumo.h)(0x6750C388)()
-F (..\..\src\drv_consumo.h)(0x6750C388)()
-F (..\..\src\drv_monitor.h)(0x6750C388)()
-F (..\..\src\drv_monitor.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_monitor.o --omf_browse .\objects\drv_monitor.crf --depend .\objects\drv_monitor.d)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\rt_fifo.h)(0x6750C388)()
-F (..\..\src\rt_fifo.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\rt_fifo.o --omf_browse .\objects\rt_fifo.crf --depend .\objects\rt_fifo.d)
-I (..\..\src\rt_fifo.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (..\..\src\svc_stats.h)(0x6750C388)
-F (..\..\src\rt_evento_t.h)(0x6750C388)()
-F (..\..\src\drv_botones.c)(0x6750CD06)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_botones.o --omf_browse .\objects\drv_botones.crf --depend .\objects\drv_botones.d)
-I (..\..\src\drv_botones.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\hal_ext_int.h)(0x6750C388)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (..\..\src\svc_stats.h)(0x6750C388)
-F (..\..\src\drv_botones.h)(0x6750C388)()
-F (..\..\src\hal_ext_int.h)(0x6750C388)()
-F (..\..\src\rt_GE.c)(0x6750CC7E)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\rt_ge.o --omf_browse .\objects\rt_ge.crf --depend .\objects\rt_ge.d)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\rt_fifo.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\drv_consumo.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-F (..\..\src\rt_GE.h)(0x6750C388)()
-F (..\..\src\svc_alarma.c)(0x6750CC96)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\svc_alarma.o --omf_browse .\objects\svc_alarma.crf --depend .\objects\svc_alarma.d)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\rt_FIFO.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-F (..\..\src\svc_alarma.h)(0x6750C388)()
-F (..\..\src\drv_wdt.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_wdt.o --omf_browse .\objects\drv_wdt.crf --depend .\objects\drv_wdt.d)
-I (..\..\src\drv_wdt.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_wdt.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-F (..\..\src\svc_wdt.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\svc_wdt.o --omf_browse .\objects\svc_wdt.crf --depend .\objects\svc_wdt.d)
-I (..\..\src\svc_wdt.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_wdt.h)(0x6750C388)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-F (..\..\src\svc_wdt.h)(0x6750C388)()
-F (..\..\src\drv_wdt.h)(0x6750C388)()
-F (..\..\src\hal_wdt.h)(0x6750C388)()
-F (..\..\src\drv_sc.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_sc.o --omf_browse .\objects\drv_sc.crf --depend .\objects\drv_sc.d)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_sc.h)(0x6750C388)
-F (..\..\src\drv_sc.h)(0x6750C388)()
-F (..\..\src\hal_sc.h)(0x6750C388)()
-F (..\..\src\drv_rng.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_rng.o --omf_browse .\objects\drv_rng.crf --depend .\objects\drv_rng.d)
-I (..\..\src\drv_rng.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_rng.h)(0x6750C388)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\drv_rng.h)(0x6750C388)()
-F (..\..\src\hal_rng.h)(0x6750C388)()
-F (..\..\src\drv_uart.c)(0x6750CC3F)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\drv_uart.o --omf_browse .\objects\drv_uart.crf --depend .\objects\drv_uart.d)
-I (..\..\src\drv_uart.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\hal_uart.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599F3DAA)
-F (..\..\src\drv_uart.h)(0x6750C388)()
-F (..\..\src\hal_uart.h)(0x6750C388)()
-F (..\..\src\svc_log.c)(0x6750CCA6)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\svc_log.o --omf_browse .\objects\svc_log.crf --depend .\objects\svc_log.d)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_uart.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\hal_uart.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\drv_monitor.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599F3DAA)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599F3DAC)
-F (..\..\src\svc_log.h)(0x6750C388)()
-F (..\..\src\testing.h)(0x6750C388)()
-F (..\..\src\testing.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\testing.o --omf_browse .\objects\testing.crf --depend .\objects\testing.d)
-I (..\..\src\board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (..\..\src\svc_alarma.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\drv_rng.h)(0x6750C388)
-I (..\..\src\rt_GE.h)(0x6750C388)
-I (..\..\src\drv_leds.h)(0x6750C388)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\svc_wdt.h)(0x6750C388)
-I (..\..\src\hal_wdt.h)(0x6750C388)
-I (..\..\src\rt_FIFO.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (..\..\src\testing.h)(0x6750C388)
-F (..\..\src\app\practica_2.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\practica_2.o --omf_browse .\objects\practica_2.crf --depend .\objects\practica_2.d)
-I (../../src/drv_tiempo.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/drv_leds.h)(0x6750C388)
-I (..\..\src\app\practica_2.h)(0x6750C388)
-F (..\..\src\app\practica_3.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\practica_3.o --omf_browse .\objects\practica_3.crf --depend .\objects\practica_3.d)
-I (..\..\src\app\practica_3.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/drv_tiempo.h)(0x6750C388)
-I (../../src/drv_leds.h)(0x6750C388)
-I (../../src/drv_consumo.h)(0x6750C388)
-I (../../src/rt_fifo.h)(0x6750C388)
-I (../../src/hal_gpio.h)(0x6750C388)
-I (../../src/rt_evento_t.h)(0x6750C388)
-I (../../src/drv_sc.h)(0x6750C388)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\app\practica_4.c)(0x6750C767)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\practica_4.o --omf_browse .\objects\practica_4.crf --depend .\objects\practica_4.d)
-I (..\..\src\app\practica_4.h)(0x6750C389)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/drv_tiempo.h)(0x6750C388)
-I (../../src/drv_leds.h)(0x6750C388)
-I (../../src/drv_consumo.h)(0x6750C388)
-I (../../src/rt_evento_t.h)(0x6750C388)
-I (../../src/rt_GE.h)(0x6750C388)
-I (../../src/svc_alarma.h)(0x6750C388)
-I (../../src/drv_wdt.h)(0x6750C388)
-I (../../src/svc_log.h)(0x6750C388)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\app\practica_5.c)(0x6750CCAD)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\practica_5.o --omf_browse .\objects\practica_5.crf --depend .\objects\practica_5.d)
-I (..\..\src\app\practica_5.h)(0x6750C389)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/drv_leds.h)(0x6750C388)
-I (../../src/drv_tiempo.h)(0x6750C388)
-I (../../src/drv_consumo.h)(0x6750C388)
-I (../../src/drv_botones.h)(0x6750C388)
-I (../../src/drv_rng.h)(0x6750C388)
-I (../../src/rt_GE.h)(0x6750C388)
-I (../../src/rt_evento_t.h)(0x6750C388)
-I (../../src/svc_alarma.h)(0x6750C388)
-I (../../src/drv_wdt.h)(0x6750C388)
-I (../../src/svc_log.h)(0x6750C388)
-I (../../src/rt_fifo.h)(0x6750C388)
-I (../../src/hal_gpio.h)(0x6750C388)
-I (../../src/drv_sc.h)(0x6750C388)
-I (../../src/svc_stats.h)(0x6750C388)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (..\..\src\app\practica_5.h)(0x6750C389)()
-F (..\..\src\app\practica_4.h)(0x6750C389)()
-F (..\..\src\app\practica_3.h)(0x6750C388)()
-F (..\..\src\app\practica_2.h)(0x6750C388)()
-F (..\..\src\svc_stats.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\svc_stats.o --omf_browse .\objects\svc_stats.crf --depend .\objects\svc_stats.d)
-I (..\..\src\svc_stats.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (..\..\src\drv_tiempo.h)(0x6750C388)
-I (..\..\src\rt_evento_t.h)(0x6750C388)
-I (..\..\src\svc_log.h)(0x6750C388)
-I (..\..\src\rt_fifo.h)(0x6750C388)
-I (..\..\src\hal_gpio.h)(0x6750C388)
-I (..\..\src\drv_sc.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599F3DAC)
-F (..\..\src\svc_stats.h)(0x6750C388)()
-F (..\src_nrf\hal_gpio_nrf.c)(0x6750CA4E)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_gpio_nrf.o --omf_browse .\objects\hal_gpio_nrf.crf --depend .\objects\hal_gpio_nrf.d)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (../../src/hal_gpio.h)(0x6750C388)
-F (..\src_nrf\hal_tiempo_nrf.c)(0x6750CA92)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_tiempo_nrf.o --omf_browse .\objects\hal_tiempo_nrf.crf --depend .\objects\hal_tiempo_nrf.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/hal_tiempo.h)(0x6750C388)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\board_nrf52840dk.h)(0x6750C388)()
-F (..\src_nrf\board_nrf52840_dongle.h)(0x6750C388)()
-F (..\src_nrf\hal_consumo_nrf.c)(0x6750CB8E)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_consumo_nrf.o --omf_browse .\objects\hal_consumo_nrf.crf --depend .\objects\hal_consumo_nrf.d)
-I (../../src/hal_consumo.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\hal_gpio_nrf.h)(0x6750C388)()
-F (..\src_nrf\hal_ext_int_nrf.c)(0x6750CB95)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_ext_int_nrf.o --omf_browse .\objects\hal_ext_int_nrf.crf --depend .\objects\hal_ext_int_nrf.d)
-I (../../src/hal_ext_int.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\hal_wdt_nrf.c)(0x6750CAD1)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_wdt_nrf.o --omf_browse .\objects\hal_wdt_nrf.crf --depend .\objects\hal_wdt_nrf.d)
-I (../../src/hal_wdt.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\hal_sc_nrf.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_sc_nrf.o --omf_browse .\objects\hal_sc_nrf.crf --depend .\objects\hal_sc_nrf.d)
-I (../../src/hal_sc.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\hal_rng_nrf.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_rng_nrf.o --omf_browse .\objects\hal_rng_nrf.crf --depend .\objects\hal_rng_nrf.d)
-I (../../src/hal_rng.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-F (..\src_nrf\hal_uart_nrf.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\hal_uart_nrf.o --omf_browse .\objects\hal_uart_nrf.crf --depend .\objects\hal_uart_nrf.d)
-I (../../src/hal_uart.h)(0x6750C388)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-I (../../src/board.h)(0x6750C388)
-I (../src_nrf/board_nrf52840dk.h)(0x6750C388)
-F (RTE\Device\nRF52840_xxAA\arm_startup_nrf52840.s)(0x6750C388)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "NRF52840_XXAA SETA 1"--list .\listings\arm_startup_nrf52840.lst --xref -o .\objects\arm_startup_nrf52840.o --depend .\objects\arm_startup_nrf52840.d)
-F (RTE\Device\nRF52840_xxAA\system_nrf52.c)(0x6750C388)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../src_nrf -I ../../src-I.\RTE\_nRF-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="526" -D_RTE_ -DNRF52840_XXAA -DBOARD_PCA10056 -DNRF52840_XXAA -DCONFIG_GPIO_AS_PINRESET -DFLOAT_ABI_HARD -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"-o .\objects\system_nrf52.o --omf_browse .\objects\system_nrf52.crf --depend .\objects\system_nrf52.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599F3DAE)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm4.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h)(0x5B1FA104)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5B58A636)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\mpu_armv7.h)(0x5B61D2F4)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf_peripherals.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_peripherals.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_erratas.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52.h)(0x61978E50)
-I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52_approtect.h)(0x61978E50)

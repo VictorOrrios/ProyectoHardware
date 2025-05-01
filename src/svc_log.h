@@ -1,19 +1,18 @@
-/* *****************************************************************************
+/**
+ * @file svc_log.h
+ * @ingroup SVC_LOG
+ * @brief Logging Service Interface
+ * @details Provides a configurable logging system with multiple severity levels
+ *          and formatted output support. Includes compile-time log level filtering
+ *          and queue-based message handling.
+ *
  * Hardware Project 2024
- * 
- * svc_log.h - Logging Service Interface
- * 
- * Description:
- *   Provides a configurable logging system with multiple severity levels
- *   and formatted output support. Includes compile-time log level filtering
- *   and queue-based message handling.
- * 
- * Key Features:
- *   - Multiple log levels (DEBUG, INFO, ERROR)
- *   - Compile-time log filtering
- *   - Formatted logging support
- *   - Queue-based asynchronous logging
- * *****************************************************************************/
+ * EINA - University of Zaragoza
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef SVC_LOG
 #define SVC_LOG
@@ -65,8 +64,10 @@
 /**
  * @brief Initialize the logging service
  * @param monitor Monitor ID for queue overflow detection
+ * @param uart_freed_callback Callback function to be called when the UART is freed
+ * @param uart_freed_event Event identifier to be passed to the callback
  */
-void svc_log_iniciar(uint32_t monitor);
+void svc_log_iniciar(uint32_t monitor, void (*uart_freed_callback)(), uint32_t uart_freed_event);
 
 /**
  * @brief Send a log message with level

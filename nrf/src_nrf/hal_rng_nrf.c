@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_rng_nrf.c
+ * @ingroup HAL_NRF
+ * @brief Random Number Generator HAL implementation for nRF52840
+ * @details Implementation of the Random Number Generator Hardware Abstraction Layer
+ *          for the nRF52840 microcontroller. Uses the True Random Number Generator
+ *          (TRNG) peripheral to generate random numbers.
+ *
+ * @defgroup HAL_NRF_RNG Random Number Generator
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_rng_nrf.c - Random Number Generator HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Random Number Generator Hardware Abstraction Layer
- *   for the nRF52840 microcontroller. Uses the True Random Number Generator
- *   (TRNG) peripheral to generate random numbers.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_rng.h"
 #include "nrf.h"
@@ -65,4 +64,6 @@ uint8_t hal_rng_get_byte(uint8_t* byte) {
 void hal_rng_stop(void) {
     NRF_RNG->TASKS_STOP = 1;
 }
+
+/** @} */ // End of HAL_NRF_RNG group
 

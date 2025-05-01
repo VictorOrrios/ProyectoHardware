@@ -1,23 +1,18 @@
-/* *****************************************************************************
+/**
+ * @file testing.h
+ * @ingroup TESTING
+ * @brief Test Suite Interface
+ * @details Interface for the test suite module. Provides functions to test different
+ *          components of the system including watchdog, random number generation,
+ *          FIFO queues, buttons, UART, and critical sections.
+ *
  * Hardware Project 2024
- * 
- * testing.h - Test Suite Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the test suite module. Provides functions to test different
- *   components of the system including watchdog, random number generation,
- *   FIFO queues, buttons, UART, and critical sections.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #if defined(TESTING) || defined(DEBUG)
 

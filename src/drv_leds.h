@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file drv_leds.h
+ * @ingroup DRV
+ * @brief LED Driver Interface
+ * @details Interface for the LED driver module. Provides hardware-independent
+ *          functions to initialize and control LEDs, including basic operations
+ *          like turning on/off and toggling.
+ *
+ * @defgroup DRV_LEDS LED Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_leds.h - LED Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the LED driver module. Provides hardware-independent
- *   functions to initialize and control LEDs, including basic operations
- *   like turning on/off and toggling.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_LEDS
 #define DRV_LEDS
@@ -57,14 +56,6 @@ void drv_led_apagar(uint32_t id);
  */
 void drv_led_conmutar(uint32_t id);
 
-#if 0
-/**
- * Optional high-level functions that might be useful.
- * [NOT IMPLEMENTED]
- */
-uint32_t drv_led_estado(uint32_t id);
-void drv_leds_encender_todos();
-void drv_leds_apagar_todos();
-#endif
+/** @} */ // End of DRV_LEDS group
 
 #endif

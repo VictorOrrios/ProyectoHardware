@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file hal_consumo_nrf.c
+ * @ingroup HAL_NRF
+ * @brief Power Management HAL implementation for nRF52840
+ * @details Implementation of the Power Management Hardware Abstraction Layer for
+ *          the nRF52840 microcontroller. This module provides functions to manage
+ *          different power modes (wait and sleep) to optimize power consumption.
+ *
+ * @defgroup HAL_NRF_PM Power Management
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_consumo_nrf.c - Power Management HAL for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the Power Management Hardware Abstraction Layer for
- *   the nRF52840 microcontroller. This module provides functions to manage
- *   different power modes (wait and sleep) to optimize power consumption.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "hal_consumo.h"
 #include "board.h"
@@ -61,3 +60,5 @@ void hal_consumo_dormir(void){
 		__wfe();
 	}
 }
+
+/** @} */ // End of HAL_NRF_PM group

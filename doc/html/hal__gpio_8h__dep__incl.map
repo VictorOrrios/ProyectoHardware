@@ -1,0 +1,5 @@
+<map id="src/hal_gpio.h" name="src/hal_gpio.h">
+<area shape="rect" id="Node000001" title="GPIO HAL Interface." alt="" coords="5,5,108,31"/>
+<area shape="rect" id="Node000002" href="$rt__fifo_8h.html" title="Real&#45;Time FIFO Queue Manager." alt="" coords="13,79,100,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,46,59,79,54,79,54,46"/>
+</map>

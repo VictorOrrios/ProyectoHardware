@@ -1,23 +1,27 @@
-/* *****************************************************************************
+/**
+ * @file practica_3.c
+ * @ingroup APP_EVENT
+ * @brief Event-Based LED Control Implementation
+ * 
+ * @details Implements LED control using event-based programming:
+ * - Timer interrupt handling
+ * - Event queue management
+ * - Power-efficient scheduling
+ * - Runtime system integration
+ * 
+ * Features:
+ * - Version 3: Timer interrupt-based LED control
+ * - Version 4: Event queue-based LED control
+ * - Power management integration
+ * - Event scheduler implementation
+ * 
  * Hardware Project 2024
- * 
- * practica_3.c - Event-Based LED Control Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
  * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of Practice 3 module. Demonstrates event-based LED control
- *   using the runtime system and power management features. Includes both
- *   timer-based and event queue-based implementations.
- * *****************************************************************************/
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 02/12/2024
+ */
 
 #include "practica_3.h"
 #include "drv_tiempo.h"

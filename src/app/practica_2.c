@@ -1,23 +1,25 @@
-/* *****************************************************************************
+/**
+ * @file practica_2.c
+ * @ingroup APP_BLINK
+ * @brief LED Blinking Practice Implementation
+ * 
+ * @details Implements basic LED control demonstrations using different timing methods:
+ * - Version 1: Basic busy-wait delay through instruction loop
+ * - Version 2: Hardware timer-based precise timing
+ * 
+ * This module serves as an introduction to:
+ * - Basic LED control operations
+ * - Timing control methods
+ * - Hardware timer usage
+ * - Power consumption considerations
+ * 
  * Hardware Project 2024
- * 
- * practica_2.c - LED Blinking Practice Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
  * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of Practice 2 module. Contains two versions of LED blinking:
- *   - Version 1: Using busy-wait delay through instruction loop
- *   - Version 2: Using hardware timer for precise timing
- * *****************************************************************************/
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 02/12/2024
+ */
 
 #include "drv_tiempo.h"
 #include "drv_leds.h"

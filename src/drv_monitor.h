@@ -1,23 +1,22 @@
-/* *****************************************************************************
+/**
+ * @file drv_monitor.h
+ * @ingroup DRV
+ * @brief Debug Monitor Driver Interface
+ * @details Interface for the debug monitor driver module. Defines functions to
+ *          manage GPIO pins used as debug monitors, allowing temporal tracking
+ *          of program execution through digital signals.
+ *
+ * @defgroup DRV_MONITOR Debug Monitor Driver
+ * @ingroup DRV
+ * @{
+ *
  * Hardware Project 2024
- * 
- * drv_monitor.h - Debug Monitor Driver Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the debug monitor driver module. Defines functions to
- *   manage GPIO pins used as debug monitors, allowing temporal tracking
- *   of program execution through digital signals.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef DRV_MONITOR
 #define DRV_MONITOR
@@ -51,5 +50,7 @@ void drv_monitor_marcar(uint32_t id);
  * @note Inactive state is the complement of MONITOR_ACTIVE_STATE
  */
 void drv_monitor_desmarcar(uint32_t id);
+
+/** @} */ // End of DRV_MONITOR group
 
 #endif

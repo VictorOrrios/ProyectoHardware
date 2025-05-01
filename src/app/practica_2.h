@@ -1,22 +1,29 @@
-/* *****************************************************************************
+/**
+ * @file practica_2.h
+ * @ingroup APP
+ * @brief LED Blinking Practice Interface
+ * @details Interface for Practice 2 module. Provides functions to demonstrate LED
+ *          blinking using different timing methods:
+ *          - Busy-wait delay implementation
+ *          - Timer-based precise timing
+ *          - Power-efficient operation
+ *
+ * @defgroup APP_BLINK LED Blinking Practice
+ * @ingroup APP
+ * @details This module demonstrates basic LED control techniques:
+ *          - Basic busy-wait timing control
+ *          - Hardware timer utilization
+ *          - Power consumption considerations
+ *          - Interrupt handling basics
+ * @{
+ *
  * Hardware Project 2024
- * 
- * practica_2.h - LED Blinking Practice Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for Practice 2 module. Provides functions to demonstrate LED
- *   blinking using different timing methods: busy-wait and timer-based.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef PRACTICA_2
 #define PRACTICA_2
@@ -42,5 +49,7 @@ void blink_v1(uint32_t id);
  * @param id LED identifier to blink
  */
 void blink_v2(uint32_t id);
+
+/** @} */ // End of DRV_BUTTONS group
 
 #endif // PRACTICA_2

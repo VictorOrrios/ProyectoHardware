@@ -1,24 +1,16 @@
-/* *****************************************************************************
+/**
+ * @file drv_sc.c
+ * @ingroup DRV_SC
+ * @brief Critical Section Driver Implementation
+ * @details Implementation of nested critical sections with interrupt state tracking.
+ *
  * Hardware Project 2024
- * 
- * drv_sc.c - Critical Section Driver Implementation
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the critical section driver module. Provides nested
- *   critical section support by tracking the nesting depth and preserving
- *   the interrupt state. Only disables interrupts on first entry and
- *   restores original state on last exit.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #include "drv_sc.h"
 #include "hal_sc.h"

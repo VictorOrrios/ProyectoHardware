@@ -1,21 +1,17 @@
-/* *****************************************************************************
+/**
+ * @file rt_fifo.h
+ * @ingroup RT_FIFO
+ * @brief Real-Time FIFO Queue Manager
+ * @details Implements a real-time FIFO queue for event management with
+ *          thread-safe operations, overflow protection and statistical tracking.
+ *
  * Hardware Project 2024
- * 
- * rt_fifo.h - Real-Time FIFO Queue Manager
- * 
- * Description:
- *   Implements a real-time FIFO (First In First Out) queue for event management.
- *   This module provides thread-safe operations for enqueueing and dequeuing
- *   events, with overflow protection and statistical tracking. The queue is
- *   designed for real-time event processing with timestamp tracking.
- * 
- * Key Features:
- *   - Fixed-size circular buffer implementation
- *   - Overflow detection and handling
- *   - Event timestamping
- *   - Statistical tracking of event counts
- *   - Thread-safe operations through critical sections
- * *****************************************************************************/
+ * EINA - University of Zaragoza
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef RT_FIFO
 #define RT_FIFO
@@ -23,28 +19,6 @@
 #include "hal_gpio.h"
 #include "rt_evento_t.h"
 #include "drv_tiempo.h"
-#include <stdint.h>
-#include "drv_sc.h"
-
-/**
- * @brief Structure that defines an event in the system
- * 
- * Each event contains an identifier, auxiliary data, and a timestamp
- * indicating when the event was queued.
- */
-typedef struct{
-    EVENTO_T ID_EVENTO; ///< Event type identifier
-    uint32_t auxData;   ///< Event-specific auxiliary data
-    Tiempo_us_t TS;     ///< Timestamp in microseconds
-} EVENTO;
-
-/**
- * @brief Maximum size of the event queue
- * 
- * Defines how many events can be pending simultaneously.
- * @warning Must be a power of 2 to optimize modulo operations
- */
-#define EVENT_QUEUE_SIZE 64
 
 /**
  * @brief Initialize the event queue

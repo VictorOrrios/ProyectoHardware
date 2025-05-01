@@ -1,0 +1,6 @@
+<map id="HAL Platform Specifics" name="HAL Platform Specifics">
+<area shape="rect" id="Node000002" href="$group___h_a_l.html" title="Hardware abstraction layer for microcontroller peripherals." alt="" coords="5,23,152,64"/>
+<area shape="rect" id="Node000001" title="Platform&#45;specific HAL header files." alt="" coords="200,31,357,56"/>
+<area shape="rect" id="Node000003" href="$group___h_a_l___l_p_c.html" title="Hardware interface definitions for LPC2105." alt="" coords="408,5,536,31"/>
+<area shape="rect" id="Node000004" href="$group___h_a_l___n_r_f.html" title="Hardware interface definitions for nRF52840." alt="" coords="405,55,539,80"/>
+</map>

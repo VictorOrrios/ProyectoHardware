@@ -1,23 +1,21 @@
-/* *****************************************************************************
+/**
+ * @file hal_sc.h
+ * @ingroup HAL
+ * @brief Critical Section HAL Interface
+ * @details Interface for the Critical Section Hardware Abstraction Layer.
+ *          Provides functions to manage interrupt enabling/disabling.
+ *
+ * @defgroup HAL_SC Critical Section HAL
+ * @ingroup HAL
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_sc.h - Critical Section HAL Interface
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Interface for the Critical Section Hardware Abstraction Layer.
- *   Provides functions to manage interrupt enabling/disabling for
- *   critical section implementation.
- * *****************************************************************************/
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
 
 #ifndef HAL_SC
 #define HAL_SC

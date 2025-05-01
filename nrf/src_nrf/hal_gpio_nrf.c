@@ -1,24 +1,23 @@
-/* *****************************************************************************
+/**
+ * @file hal_gpio_nrf.c
+ * @ingroup HAL_NRF
+ * @brief GPIO HAL implementation for nRF52840
+ * @details Implementation of the GPIO Hardware Abstraction Layer for the nRF52840
+ *          microcontroller. This module provides functions to configure and control
+ *          GPIO pins, supporting both individual pin and multi-pin operations.
+ *
+ * @defgroup HAL_NRF_GPIO GPIO
+ * @ingroup HAL_NRF
+ * @{
+ *
  * Hardware Project 2024
- * 
- * hal_gpio_nrf.c - GPIO Hardware Abstraction Layer for nRF52840
- * 
- * Authors:
- *   - Víctor Orrios Barón (NIA: 840994)
- *   - José Miguel Quílez Vergara (NIA: 873499)
- * 
  * EINA - University of Zaragoza
- * Computer Science and Engineering
- * Course: 3rd year, 1st semester
- * 
- * Date: 02/12/2024
- * 
- * Description:
- *   Implementation of the GPIO Hardware Abstraction Layer for the nRF52840
- *   microcontroller. This module provides functions to configure and control
- *   GPIO pins, supporting both individual pin and multi-pin operations.
- * *****************************************************************************/
-   
+ *
+ * @author Víctor Orrios Barón (840994)
+ * @author José Miguel Quílez Vergara (873499)
+ * @date 17/12/2024
+ */
+
 #include "nrf.h"
 #include "board.h"
 #include "hal_gpio.h"
@@ -79,9 +78,9 @@ uint32_t hal_gpio_leer_n(HAL_GPIO_PIN_T gpio_inicial, uint8_t num_bits){
 /**
  * @brief Write value to multiple consecutive GPIO pins
  * 
- * @param bit_inicial First GPIO pin to write to
+ * @param bit_inicial First GPIO pin to write
  * @param num_bits Number of consecutive pins to write
- * @param valor Value to write (if value is larger than num_bits, only the least significant bits are used)
+ * @param valor Value to write to pins
  */
 void hal_gpio_escribir_n(HAL_GPIO_PIN_T bit_inicial, 
 			uint8_t num_bits, uint32_t valor){
@@ -136,3 +135,5 @@ void hal_gpio_escribir(HAL_GPIO_PIN_T gpio, uint32_t valor){
 	if ((valor & 0x01) != 0) NRF_GPIO->OUTSET = masc;
 	else NRF_GPIO->OUTCLR = masc;
 }
+
+/** @} */ // End of HAL_NRF_GPIO group
