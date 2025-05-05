@@ -10,7 +10,7 @@ This project is a lightweight microkernel designed for the **LPC2105** and **nRF
   - **LEDs**
   - **Buttons / GPIO**
 - **Simon Says** demo game included
-- Developed with **uVision 5**
+- Developed with **Keil uVision 5**
 - Auto-generated documentation using **Doxygen**
 
 ## Getting Started
